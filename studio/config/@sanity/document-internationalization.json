@@ -1,0 +1,21 @@
+{
+  "base": "nl-nl",
+  "languages": [
+    {
+      "title": "English (UK)",
+      "id": "en-uk"
+    },
+    {
+      "title": "Dutch (NL)",
+      "id": "nl-nl"
+    }
+  ],
+  "idStructure": "delimiter",
+  "referenceBehavior": "strong",
+  "withTranslationsMaintenance": false,
+  "fieldNames": {
+    "lang": "__i18n_lang",
+    "references": "__i18n_refs",
+    "baseReference": "__i18n_base"
+  }
+}
