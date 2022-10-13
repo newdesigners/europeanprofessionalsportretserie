@@ -57,8 +57,8 @@ export default {
       type: "number",
     },
     {
-      title: "LinkdIn",
-      name: "linkdIn",
+      title: "Linkedin",
+      name: "linkedin",
       type: "url",
     },
     {
