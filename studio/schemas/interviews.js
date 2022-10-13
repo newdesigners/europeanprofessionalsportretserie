@@ -46,5 +46,30 @@ export default {
         },
       ],
     },
+    {
+      name: "mail",
+      title: "Mail",
+      type: "string",
+    },
+    {
+      title: "Phone",
+      name: "phone",
+      type: "number",
+    },
+    {
+      title: "LinkdIn",
+      name: "linkdIn",
+      type: "url",
+    },
+    {
+      title: "Twitter",
+      name: "twitter",
+      type: "url",
+    },
+    {
+      title: "Instagram",
+      name: "instagram",
+      type: "url",
+    },
   ],
 };
