@@ -16,7 +16,7 @@ module.exports = {
     },
     fontSize: {
       "Phone/Header1": ["40px", { lineHeight: "50.28px" }],
-      "Phone/header2": ["24px", { lineHeight: "30.17px" }],
+      "Phone/header2": ["24px"],
       "Phone/header3": ["16px", { lineHeight: "20.11px" }],
       "Phone/Label": ["16px", { lineHeight: "24px" }],
       "Phone/Labelsmall": ["7px", { lineHeight: "10.5px" }],
@@ -26,7 +26,7 @@ module.exports = {
       "Phone/buttonlarge": ["16px", { lineHeight: "24px" }],
       "Desktop/Header1": ["80px", { lineHeight: "120px" }],
       "Desktop/Header2": ["40px", { lineHeight: "45px" }],
-      "Desktop/Header3": ["24px", { lineHeight: "30.17px" }],
+      "Desktop/Header3": ["24px"],
       "Desktop/Label": ["20px", { lineHeight: "30px" }],
       "Desktop/paragraph": ["16px", { lineHeight: "10px" }],
       "Desktop/Quote": ["22px", { lineHeight: "25px" }],

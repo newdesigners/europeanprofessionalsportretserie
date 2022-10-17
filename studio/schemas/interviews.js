@@ -1,7 +1,10 @@
+import { MdOutlineAutoStories } from "react-icons/md";
+
 export default {
   name: "interview",
   title: "Interview",
   type: "document",
+  icon: MdOutlineAutoStories,
   i18n: true,
   fields: [
     {
@@ -70,6 +73,11 @@ export default {
       title: "Instagram",
       name: "instagram",
       type: "url",
+    },
+    {
+      title: "Meer verhalen",
+      name: "meerVerhalen",
+      type: "string",
     },
   ],
 };
