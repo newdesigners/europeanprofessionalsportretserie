@@ -21,5 +21,15 @@ export default {
       name: "text",
       type: "string",
     },
+    {
+      title: "Button Read Story",
+      name: "buttonReadStory",
+      type: "string",
+    },
+    {
+      title: "Button More",
+      name: "buttonMore",
+      type: "string",
+    },
   ],
 };

@@ -12,5 +12,4 @@ module.exports = {
     locales: ["nl-nl", "en-uk"],
     defaultLocale: "nl-nl",
   },
-  nextConfig,
 };

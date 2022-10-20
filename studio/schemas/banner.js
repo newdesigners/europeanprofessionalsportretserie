@@ -10,6 +10,11 @@ export default {
       type: "string",
     },
     {
+      title: "Italic Text",
+      name: "italicText",
+      type: "string",
+    },
+    {
       name: "bannerImage",
       title: "Banner Images",
       type: "image",
