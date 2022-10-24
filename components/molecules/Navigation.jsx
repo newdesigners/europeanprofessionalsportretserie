@@ -21,13 +21,13 @@ export function Navigation({ navigation, page }) {
 
   return (
     <nav className="relative">
-      <div className="flex justify-between absolute top-0 right-0 z-10 w-full">
+      <div className="flex justify-between absolute top-0 right-0 z-10 w-full pt-6 px-4">
         {!open && <img src={urlFor(navigation[0].logo)} alt="Logo" />}
         <button onClick={handleToggle}>
           {!open ? (
             <MdMenu className="h-12 w-12 text-white" />
           ) : (
-            <MdClose className="h-12 w-12 justify-center flex" />
+            <MdClose className="h-12 w-12" />
           )}
         </button>
       </div>
