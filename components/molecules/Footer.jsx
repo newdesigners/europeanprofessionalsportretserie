@@ -7,8 +7,8 @@ import { BsTwitter, BsLinkedin } from "react-icons/bs";
 
 export function Footer({ footer, page }) {
   return (
-    <div className="bg-secondary text-white">
-      <div className=" flex justify-evenly pt-4 ">
+    <footer className="bg-secondary text-white ">
+      <div className=" flex justify-evenly pt-4 mx-4 ">
         <div>
           <ul className="flex flex-col">
             <Link href="/">
@@ -19,14 +19,14 @@ export function Footer({ footer, page }) {
             </Link>
           </ul>
           {/* contact us */}
-          <p className="pt-8">{footer.contact}</p>
+          <p className="pt-8 text-Phone/Label">{footer.contact}</p>
           <Link href="/">
             <a>
               <MdEmail className="h-6 w-6" />
             </a>
           </Link>
           {/* follow us */}
-          <p className="pt-4">{footer.volgOns}</p>
+          <p className="pt-4 text-Phone/Label">{footer.volgOns}</p>
           <div className="flex pt-2">
             <Link href="/">
               <a className="pr-8">
@@ -49,11 +49,18 @@ export function Footer({ footer, page }) {
         <div className="flex flex-col items-end">
           {/* logo's */}
           {footer.logos.map((logo) => (
-            <img key={logo._key} src={urlFor(logo)} alt="logo" />
+            <img
+              key={logo._key}
+              src={urlFor(logo)}
+              alt="logo"
+              className="pb-8 last:pb-0"
+            />
           ))}
         </div>
       </div>
-      <p className="pb-8 text-center pt-20">{footer.copyrightText}</p>
-    </div>
+      <p className="pb-8 text-center pt-20 text-Phone/Labelsmall">
+        {footer.copyrightText}
+      </p>
+    </footer>
   );
 }

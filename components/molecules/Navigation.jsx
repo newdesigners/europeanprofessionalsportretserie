@@ -20,12 +20,12 @@ export function Navigation({ navigation, page }) {
   };
 
   return (
-    <nav className="relative">
-      <div className="flex justify-between absolute top-0 right-0 z-10 w-full pt-6 px-4">
+    <nav>
+      <div className="flex justify-between z-10 w-full pt-6 px-4">
         {!open && <img src={urlFor(navigation[0].logo)} alt="Logo" />}
         <button onClick={handleToggle}>
           {!open ? (
-            <MdMenu className="h-12 w-12 text-white" />
+            <MdMenu className="h-12 w-12 text-primary" />
           ) : (
             <MdClose className="h-12 w-12" />
           )}
@@ -33,13 +33,21 @@ export function Navigation({ navigation, page }) {
       </div>
       {open && (
         <ul className="flex flex-col items-center h-screen">
-          <img src={urlFor(navigation[0].logo)} alt="Logo" className="py-20" />
-          <Link href="#Over">
+          <Link href="/">
+            <a>
+              <img
+                src={urlFor(navigation[0].logo)}
+                alt="Logo"
+                className="py-20"
+              />
+            </a>
+          </Link>
+          <Link href="/about">
             <a className="text-Phone/buttonlarge py-4 px-2 border-b-secondary black border-b-2 active:border-b-primary">
               {page[0].title}
             </a>
           </Link>
-          <Link href="#Verhalen">
+          <Link href="/#stories">
             <a className="text-Phone/buttonlarge py-4 px-2 border-b-secondary black border-b-2 active:border-b-primary mt-16">
               {page[1].title}
             </a>

@@ -1,6 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
-import { useRouter } from "next/router";
 import { client } from "../lib/client";
 
 // components
@@ -9,6 +7,7 @@ import { Banner } from "../components/molecules/banner";
 import { InterviewPreview } from "../components/molecules/InterviewPreview";
 import { Footer } from "../components/molecules/Footer";
 import { ButtonLarge } from "../components/atoms/ButtonLarge";
+import { Interview } from "../components/molecules/Interview";
 
 export const getServerSideProps = async ({ locale }) => {
   // banner
@@ -38,14 +37,14 @@ export const getServerSideProps = async ({ locale }) => {
 export default function Home({ banner, navigation, page, interview, footer }) {
   return (
     <div>
-      <Head>
+      {/* <Head>
         <title>European proffesionals</title>
         <meta
           name="description"
           content="European proffesionals. interviews, story's"
         />
         <link rel="icon" href="/favicon.ico" />
-      </Head>
+      </Head> */}
       <Navigation navigation={navigation} page={page} />
       <Banner banner={banner} />
       {/* interview stuk */}
@@ -54,7 +53,7 @@ export default function Home({ banner, navigation, page, interview, footer }) {
         <h2 className="text-Phone/header2 font-merriweather-bold  pt-8">
           {page[1].text}
         </h2>
-        <div className="flex mx-4  mt-4">
+        <div className="flex mx-4  mt-4 flex-wrap justify-around">
           {interview.map((interview) => (
             <InterviewPreview
               key={interview._id}
@@ -65,6 +64,8 @@ export default function Home({ banner, navigation, page, interview, footer }) {
         </div>
         <ButtonLarge text={page[1].buttonMore} />
       </div>
+      {/* interview */}
+      <Interview interview={interview} />
       {/* footer */}
       <Footer footer={footer[0]} page={page} />
     </div>
@@ -96,4 +97,5 @@ OVERIGE
 [ ] navigatie link active blauw maken
 [ ] alt text op foto's
 [ ] fix routing, links
+[ ] interview quote afkorten als quote lang is
 */

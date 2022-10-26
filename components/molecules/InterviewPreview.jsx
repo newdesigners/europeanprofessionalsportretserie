@@ -20,7 +20,11 @@ export function InterviewPreview({ interview, page }) {
             {interview.quote}
           </p>
         )}
-        <ButtonSmall text={page[1].buttonReadStory} />
+
+        <ButtonSmall
+          text={page[1].buttonReadStory}
+          url={`/stories/${interview.slug.current}`}
+        />
       </div>
     </>
   );
