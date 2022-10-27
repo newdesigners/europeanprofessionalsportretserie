@@ -36,20 +36,12 @@ export const getServerSideProps = async ({ locale }) => {
 
 export default function Home({ banner, navigation, page, interview, footer }) {
   return (
-    <div>
-      {/* <Head>
-        <title>European proffesionals</title>
-        <meta
-          name="description"
-          content="European proffesionals. interviews, story's"
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head> */}
+    <>
       <Navigation navigation={navigation} page={page} />
       <Banner banner={banner} />
       {/* interview stuk */}
 
-      <div className="flex flex-col items-center pb-6">
+      <main className="flex flex-col items-center pb-6">
         <h2 className="text-Phone/header2 font-merriweather-bold  pt-8">
           {page[1].text}
         </h2>
@@ -63,12 +55,12 @@ export default function Home({ banner, navigation, page, interview, footer }) {
           ))}
         </div>
         <ButtonLarge text={page[1].buttonMore} />
-      </div>
+      </main>
       {/* interview */}
       <Interview interview={interview} />
       {/* footer */}
       <Footer footer={footer[0]} page={page} />
-    </div>
+    </>
   );
 }
 

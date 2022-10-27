@@ -19,6 +19,13 @@ export default {
       options: {
         hotspot: true,
       },
+      fields: [
+        {
+          name: "alt",
+          type: "string",
+          title: "Alternative text",
+        },
+      ],
     },
     {
       title: "Heading",
@@ -44,6 +51,13 @@ export default {
       options: {
         hotspot: true,
       },
+      fields: [
+        {
+          name: "alt",
+          type: "string",
+          title: "Alternative text",
+        },
+      ],
     },
     {
       title: "Wie zit er achter het project?",
@@ -62,6 +76,13 @@ export default {
       options: {
         hotspot: true,
       },
+      fields: [
+        {
+          name: "alt",
+          type: "string",
+          title: "Alternative text",
+        },
+      ],
     },
     {
       title: "Persoon achter het verhaal",
@@ -78,10 +99,21 @@ export default {
       name: "brandImages",
       title: "Brand Images",
       type: "array",
-      of: [{ type: "image" }],
-      options: {
-        hotspot: true,
-      },
+      of: [
+        {
+          type: "image",
+          options: {
+            hotspot: true,
+          },
+          fields: [
+            {
+              name: "alt",
+              type: "string",
+              title: "Alternative text",
+            },
+          ],
+        },
+      ],
     },
     {
       title: "Wil je jouw verhaal delen",

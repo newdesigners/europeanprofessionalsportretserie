@@ -36,12 +36,23 @@ export default {
     },
     {
       name: "logos",
-      title: "Logo's",
       type: "array",
-      of: [{ type: "image" }],
-      options: {
-        hotspot: true,
-      },
+      title: "Logo's",
+      of: [
+        {
+          type: "image",
+          options: {
+            hotspot: true,
+          },
+          fields: [
+            {
+              name: "alt",
+              type: "string",
+              title: "Alternative text",
+            },
+          ],
+        },
+      ],
     },
     {
       title: "copyright text",

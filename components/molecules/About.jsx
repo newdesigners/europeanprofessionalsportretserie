@@ -5,7 +5,12 @@ import { urlFor } from "../../lib/client";
 export function About({ about }) {
   return (
     <>
-      {about.landingFoto && <img src={urlFor(about.landingFoto)} alt="" />}
+      {about.landingFoto && (
+        <img
+          src={urlFor(about.landingFoto)}
+          alt={about.landingFoto.alt ? about.landingFoto.alt : "landing foto"}
+        />
+      )}
       <h2>{about.title}</h2>
       <h3>{about.heading}</h3>
       <PortableText value={about.onsVerhaal1} />

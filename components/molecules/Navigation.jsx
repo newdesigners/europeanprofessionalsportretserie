@@ -22,7 +22,13 @@ export function Navigation({ navigation, page }) {
   return (
     <nav>
       <div className="flex justify-between z-10 w-full pt-6 px-4">
-        {!open && <img src={urlFor(navigation[0].logo)} alt="Logo" />}
+        {!open && (
+          <Link href="/">
+            <a>
+              <img src={urlFor(navigation[0].logo)} alt="Logo" />
+            </a>
+          </Link>
+        )}
         <button onClick={handleToggle}>
           {!open ? (
             <MdMenu className="h-12 w-12 text-primary" />
@@ -37,7 +43,11 @@ export function Navigation({ navigation, page }) {
             <a>
               <img
                 src={urlFor(navigation[0].logo)}
-                alt="Logo"
+                alt={
+                  navigation[0].logo.alt
+                    ? navigation[0].logo.alt
+                    : "logo European proffesional"
+                }
                 className="py-20"
               />
             </a>

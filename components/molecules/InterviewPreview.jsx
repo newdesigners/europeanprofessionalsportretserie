@@ -10,7 +10,7 @@ export function InterviewPreview({ interview, page }) {
         {interview.image && (
           <img
             src={urlFor(interview.image)}
-            alt="portret image"
+            alt={interview.image.alt ? interview.image.alt : "portret image"}
             className=" h-44 object-contain"
           />
         )}
