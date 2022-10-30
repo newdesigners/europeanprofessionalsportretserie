@@ -56,8 +56,6 @@ export default function Home({ banner, navigation, page, interview, footer }) {
         </div>
         <ButtonLarge text={page[1].buttonMore} />
       </main>
-      {/* interview */}
-      <Interview interview={interview} />
       {/* footer */}
       <Footer footer={footer[0]} page={page} />
     </>
