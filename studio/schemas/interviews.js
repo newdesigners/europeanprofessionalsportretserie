@@ -16,6 +16,7 @@ export default {
       name: "slug",
       title: "Slug",
       type: "slug",
+      description: "In the English version add =en after the name",
       options: {
         source: "name",
         maxLength: 90,
