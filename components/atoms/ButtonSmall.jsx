@@ -12,7 +12,7 @@ export function ButtonSmall({ text, url }) {
   return (
     <button
       onClick={handleClick}
-      className="font-poppins text-Phone/buttonsmall bg-primary text-white rounded-10px px-4 py-3 xl:text-Desktop/buttonsmall xl:px-6 hover:bg-white hover:text-primary hover:ring-primary hover:ring-2 hover:ring-inset"
+      className="font-poppins text-Phone/buttonsmall bg-primary text-white rounded-10px px-4 py-3 lg:text-Desktop/buttonsmall lg:px-6 hover:bg-white hover:text-primary hover:ring-primary hover:ring-2 hover:ring-inset"
     >
       {text}
     </button>

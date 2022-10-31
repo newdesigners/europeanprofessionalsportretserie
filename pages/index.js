@@ -41,11 +41,12 @@ export default function Home({ banner, navigation, page, interview, footer }) {
       <Banner banner={banner} />
       {/* interview stuk */}
 
-      <main className="flex flex-col items-center pb-6">
+      <main className="flex flex-col items-center pb-6" id="stories">
         <h2 className="text-Phone/header2 font-merriweather-bold  pt-8">
           {page[1].text}
         </h2>
-        <div className="flex mx-4  mt-4 flex-wrap justify-around">
+
+        <div className="grid grid-cols-2 mt-4 pb-14 justify-items-center gap-y-4 gap-12 lg:gap-20 lg:gap-y-11 lg:grid-cols-3">
           {interview.map((interview) => (
             <InterviewPreview
               key={interview._id}
@@ -65,17 +66,17 @@ export default function Home({ banner, navigation, page, interview, footer }) {
 /* TODO: 
 
 COMPONENTEN
-[ ] about component
+[x] about component
 [x] footer component
-[ ] interview component
+[x] interview component
 [x] interview preview component
 [x] button component
 [x] banner component
 [x] Navigatie component
 
 PAGINAS
-[ ] about pagina
-[ ] interview pagina
+[x] about pagina
+[x] interview pagina
 
 ANIMATIES
 [ ] menu transitie
@@ -83,9 +84,12 @@ ANIMATIES
 
 OVERIGE
 [ ] desktop style
+[ ] scroll smooth
 [ ] desktop menu
 [ ] navigatie link active blauw maken
 [ ] alt text op foto's
 [ ] fix routing, links
 [ ] interview quote afkorten als quote lang is
+[x] Logo's bij about page in grid zetten
+[ ] laad meer button alleen tonen bij het laden van meer interviews anders niet
 */

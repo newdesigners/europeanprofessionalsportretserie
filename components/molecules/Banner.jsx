@@ -3,10 +3,10 @@ import { IoIosArrowDropdown } from "react-icons/io";
 
 export function Banner({ banner }) {
   return (
-    <div className="relative">
+    <div className="relative lg:mx-8">
       <img
         src={urlFor(banner[0].bannerImage)}
-        alt="banner image"
+        alt={banner[0].bannerImage.alt}
         className="h-[42rem] w-auto object-center object-cover relative"
       />
       <div className="absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-center flex flex-col items-center">

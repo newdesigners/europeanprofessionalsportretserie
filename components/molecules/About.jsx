@@ -21,7 +21,7 @@ export function About({ about }) {
       </div>
       <div className="mx-4 bg-white pt-12">
         {about.heading && (
-          <h3 className="text-Phone/header3 font-merriweather text-secondary border-b w-fit pb-2 ">
+          <h3 className="text-Phone/header3 font-merriweather text-secondary border-b w-fit pb-2 m-auto">
             {about.heading}
           </h3>
         )}
@@ -37,7 +37,7 @@ export function About({ about }) {
           </div>
         )}
         {about.wieZitErAchterHetProject && (
-          <h3 className="text-Phone/header3 font-merriweather text-secondary border-b w-fit pb-2">
+          <h3 className="text-Phone/header3 font-merriweather text-secondary border-b w-fit pb-2 pt-10 m-auto">
             {about.wieZitErAchterHetProject}
           </h3>
         )}
@@ -45,11 +45,11 @@ export function About({ about }) {
           <img
             src={urlFor(about.personImage)}
             alt="foto remmelt"
-            className="h-32 w-32 rounded-full my-4"
+            className="h-32 w-32 rounded-full my-4 mx-auto"
           />
         )}
         {about.name && (
-          <h3 className="font-merriweather text-Phone/header3 text-grey-60 pb-4">
+          <h3 className="font-merriweather text-Phone/header3 text-grey-60 pb-4 text-center">
             {about.name}
           </h3>
         )}
@@ -60,19 +60,26 @@ export function About({ about }) {
         )}
         {/* volgende stuk */}
         <div className="py-11">
-          <h3 className="text-Phone/header3 font-merriweather text-secondary border-b border-grey-60 w-fit pb-2">
+          <h3 className="text-Phone/header3 font-merriweather text-secondary border-b border-grey-60 w-fit pb-2 m-auto">
             {about.metDankAan}
           </h3>
-          {about.brandImages.map((logo) => (
-            <img src={urlFor(logo)} alt="brand logos" key={logo._key} />
-          ))}
+          <div className="grid gap-4 grid-cols-2 items-center justify-items-center mt-2">
+            {about.brandImages.map((logo) => (
+              <img
+                src={urlFor(logo)}
+                alt={about.brandImages?.alt}
+                key={logo._key}
+                className="max-h-20 w-auto px-8"
+              />
+            ))}
+          </div>{" "}
         </div>
         {about.wilJeJouwVerhaalDelen && (
-          <h3 className="text-Phone/header3 font-merriweather text-secondary border-b border-grey-60 w-fit pb-2">
+          <h3 className="text-Phone/header3 font-merriweather text-secondary border-b border-grey-60 w-fit pb-2 m-auto">
             {about.wilJeJouwVerhaalDelen}
           </h3>
         )}
-        <div className="pb-8 pt-4">
+        <div className="pb-8 pt-4 text-center">
           <PortableText value={about.contact} />
         </div>
       </div>

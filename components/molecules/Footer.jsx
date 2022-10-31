@@ -8,13 +8,13 @@ import { BsTwitter, BsLinkedin } from "react-icons/bs";
 export function Footer({ footer, page }) {
   return (
     <footer className="bg-secondary text-white ">
-      <div className=" flex justify-evenly pt-4 mx-4 ">
+      <div className=" flex justify-between pt-4 px-4 ">
         <div>
           <ul className="flex flex-col">
-            <Link href="/">
+            <Link href="/#stories">
               <a className="text-Phone/buttonlarge">{page[1].title}</a>
-            </Link>{" "}
-            <Link href="/">
+            </Link>
+            <Link href="/about">
               <a className="text-Phone/buttonlarge">{page[0].title}</a>
             </Link>
           </ul>

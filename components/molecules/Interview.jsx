@@ -21,17 +21,19 @@ export function Interview({ interview }) {
         </h3>
       )}
 
-      <div className="relative py-4">
-        <div className="bg-secondary h-60 w-48 absolute "></div>
-        {interview?.image && (
-          <img
-            className="relative m-4 "
-            src={urlFor(interview.image)}
-            alt={interview.image.alt ? interview.image.alt : "portret image"}
-            width={192}
-            height={240}
-          />
-        )}
+      <div className="flex justify-center">
+        <div className="relative py-4">
+          <div className="bg-secondary h-60 w-48 absolute"></div>
+          {interview?.image && (
+            <img
+              className="relative m-4 "
+              src={urlFor(interview.image)}
+              alt={interview.image.alt ? interview.image.alt : "portret image"}
+              width={192}
+              height={240}
+            />
+          )}
+        </div>
       </div>
 
       {interview?.quote && (
@@ -68,7 +70,7 @@ export function Interview({ interview }) {
         <div className="flex pb-12">
           {interview?.linkedin && (
             <Link target="_blank" href={interview?.linkedin}>
-              <a className="pr-4">
+              <a>
                 <BsLinkedin className="h-6 w-6" />
               </a>
             </Link>

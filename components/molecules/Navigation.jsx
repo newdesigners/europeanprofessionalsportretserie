@@ -33,7 +33,7 @@ export function Navigation({ navigation, page }) {
           {!open ? (
             <MdMenu className="h-12 w-12 text-primary" />
           ) : (
-            <MdClose className="h-12 w-12" />
+            <MdClose className="h-12 w-12 absolute right-0 mr-4" />
           )}
         </button>
       </div>
