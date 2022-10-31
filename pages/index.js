@@ -39,14 +39,13 @@ export default function Home({ banner, navigation, page, interview, footer }) {
     <>
       <Navigation navigation={navigation} page={page} />
       <Banner banner={banner} />
-      {/* interview stuk */}
 
       <main className="flex flex-col items-center pb-6" id="stories">
-        <h2 className="text-Phone/header2 font-merriweather-bold  pt-8">
+        <h2 className="text-Phone/header2 font-merriweather-bold  pt-8 lg:text-Desktop/Header2 lg:pt-16">
           {page[1].text}
         </h2>
 
-        <div className="grid grid-cols-2 mt-4 pb-14 justify-items-center gap-y-4 gap-12 lg:gap-20 lg:gap-y-11 lg:grid-cols-3">
+        <div className="grid grid-cols-2 mt-4 pb-14 justify-items-center gap-y-4 gap-12 lg:gap-20 lg:gap-y-11 lg:grid-cols-3 lg:mt-12 lg:justify-items-center lg:mx-32">
           {interview.map((interview) => (
             <InterviewPreview
               key={interview._id}
@@ -57,7 +56,7 @@ export default function Home({ banner, navigation, page, interview, footer }) {
         </div>
         <ButtonLarge text={page[1].buttonMore} />
       </main>
-      {/* footer */}
+
       <Footer footer={footer[0]} page={page} />
     </>
   );
