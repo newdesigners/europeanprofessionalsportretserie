@@ -32,6 +32,7 @@ module.exports = {
       "Desktop/Quote": ["22px", { lineHeight: "25px" }],
       "Desktop/buttonsmall": ["18px", { lineHeight: "27px" }],
       "Desktop/buttonlarge": ["20px", { lineHeight: "30px" }],
+      "Desktop/nav": ["16px", { lineHeight: "24px" }],
     },
     fontFamily: {
       merriweather: "Merriweather-regular, sans-serif",
