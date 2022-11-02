@@ -37,7 +37,12 @@ export const getServerSideProps = async ({ locale }) => {
 export default function Home({ banner, navigation, page, interview, footer }) {
   return (
     <>
-      <Navigation navigation={navigation} page={page} />
+      <Navigation
+        navigation={navigation}
+        page={page}
+        secondaryNav={true}
+        secondaryLink={true}
+      />
       <Banner banner={banner} />
 
       <main className="flex flex-col items-center pb-6" id="stories">

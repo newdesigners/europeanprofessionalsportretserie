@@ -9,7 +9,7 @@ import Link from "next/link";
 
 export function Interview({ interview }) {
   return (
-    <section className="pt-8 mx-4 lg:grid lg:grid-cols-8 lg:gap-x-8 lg:auto-cols-fr">
+    <section className="pt-8 mx-4 lg:grid lg:grid-cols-8 lg:gap-x-8 lg:auto-cols-fr lg:my-16 lg:pt-0">
       <div className="lg:col-start-2 lg:col-end-5">
         {interview?.name && (
           <h2 className="text-Phone/header2 font-merriweather-bold text-secondary text-center lg:text-Desktop/Header2 lg:text-left">
@@ -66,7 +66,7 @@ export function Interview({ interview }) {
         <div>
           {interview?.mail && (
             <div className="flex items-center">
-              <MdEmail className="h-6 w-6 mr-2" />
+              <MdEmail className="h-6 w-6 mr-2 text-secondary" />
               <Link href="/">
                 <a>{interview?.mail}</a>
               </Link>
