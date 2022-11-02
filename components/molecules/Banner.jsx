@@ -3,7 +3,7 @@ import { IoIosArrowDropdown } from "react-icons/io";
 
 export function Banner({ banner }) {
   return (
-    <div className="relative lg:mx-8">
+    <div className="relative lg:mx-8 lg:mt-8">
       <img
         src={urlFor(banner[0].bannerImage)}
         alt={banner[0].bannerImage.alt}

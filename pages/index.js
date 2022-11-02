@@ -42,6 +42,10 @@ export default function Home({ banner, navigation, page, interview, footer }) {
         page={page}
         secondaryNav={true}
         secondaryLink={true}
+        secondaryBorder={true}
+        mainOpen={false}
+        menuColor={true}
+        menuColorMain={false}
       />
       <Banner banner={banner} />
 

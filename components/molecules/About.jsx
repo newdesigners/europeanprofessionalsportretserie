@@ -10,7 +10,7 @@ export function About({ about }) {
           <img
             src={urlFor(about.landingFoto)}
             alt={about.landingFoto.alt ? about.landingFoto.alt : "landing foto"}
-            className="h-80 object-contain lg:h-96 lg:w-screen lg:object-cover lg:mx-8"
+            className="h-80 object-cover lg:h-96 lg:w-screen lg:mx-8"
           />
         )}
         {about.title && (
