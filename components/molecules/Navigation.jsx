@@ -83,7 +83,7 @@ export function Navigation({
           {/* logo in nav */}
           {open && (
             <Link href="/">
-              <a onClick={handleToggle}>
+              <a>
                 <img
                   src={urlFor(navigation[0].logo)}
                   alt={
@@ -99,7 +99,6 @@ export function Navigation({
           {/* links in nav */}
           <Link href="/#stories">
             <a
-              onClick={handleToggle}
               className={clsx(
                 [secondaryLink && styles.secondaryLink],
                 "font-poppins text-Phone/buttonlarge py-4 px-2 text-secondary border-b-secondary black border-b-2 lg:hover:text-primary lg:hover:border-b-primary active:border-b-primary mt-16 lg:m-0 lg:p-0 lg:mx-4 lg:px-3 lg:text-Desktop/nav"
