@@ -1,5 +1,5 @@
-import Head from "next/head";
 import { client } from "../lib/client";
+import { useState } from "react";
 
 // components
 import { Navigation } from "../components/molecules/Navigation";
@@ -7,7 +7,6 @@ import { Banner } from "../components/molecules/banner";
 import { InterviewPreview } from "../components/molecules/InterviewPreview";
 import { Footer } from "../components/molecules/Footer";
 import { ButtonLarge } from "../components/atoms/ButtonLarge";
-import { Interview } from "../components/molecules/Interview";
 
 export const getServerSideProps = async ({ locale }) => {
   // banner
@@ -35,6 +34,17 @@ export const getServerSideProps = async ({ locale }) => {
 };
 
 export default function Home({ banner, navigation, page, interview, footer }) {
+  const [isMore, setIsMore] = useState(true);
+  const [visible, setVisible] = useState(3);
+
+  const showMoreItems = () => {
+    console.log(isMore, visible);
+    setVisible(visible + 1);
+
+    if (visible == interview.length) {
+      setIsMore(false);
+    }
+  };
   return (
     <>
       <Navigation
@@ -55,7 +65,7 @@ export default function Home({ banner, navigation, page, interview, footer }) {
         </h2>
 
         <div className="grid grid-cols-2 mt-4 pb-14 justify-items-center gap-y-4 gap-12 lg:gap-20 lg:gap-y-11 lg:grid-cols-3 lg:mt-12 lg:justify-items-center lg:mx-32">
-          {interview.map((interview) => (
+          {interview.slice(0, visible).map((interview) => (
             <InterviewPreview
               key={interview._id}
               interview={interview}
@@ -63,7 +73,9 @@ export default function Home({ banner, navigation, page, interview, footer }) {
             />
           ))}
         </div>
-        <ButtonLarge text={page[1].buttonMore} />
+        {isMore && (
+          <ButtonLarge text={page[1].buttonMore} showMore={showMoreItems} />
+        )}
       </main>
 
       <Footer footer={footer[0]} page={page} />

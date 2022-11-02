@@ -26,6 +26,7 @@ export function Navigation({
   const [open, setOpen] = useState(false);
 
   const handleToggle = () => {
+    event.preventDefault();
     setOpen(!open);
   };
 
