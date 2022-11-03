@@ -47,7 +47,7 @@ export function Navigation({
         className={clsx(
           [styles.base, secondaryNav && styles.secondaryNav],
           open
-            ? "bg-white"
+            ? "bg-white lg:bg-opacity-0"
             : [
                 mainOpen && styles.mainOpen,
                 secondaryBorder && styles.secondaryBorder,
@@ -102,7 +102,7 @@ export function Navigation({
             <a
               className={clsx(
                 [secondaryLink && styles.secondaryLink],
-                "font-poppins text-Phone/buttonlarge py-4 px-2 text-secondary border-b-secondary black border-b-2 lg:hover:text-primary lg:hover:border-b-primary active:border-b-primary mt-16 lg:m-0 lg:p-0 lg:mx-4 lg:px-3 lg:text-Desktop/nav"
+                "hidden lg:block font-poppins text-Phone/buttonlarge py-4 px-2 text-secondary border-b-secondary black border-b-2 lg:hover:text-primary lg:hover:border-b-primary active:border-b-primary mt-16 lg:m-0 lg:p-0 lg:mx-4 lg:px-3 lg:text-Desktop/nav"
               )}
             >
               {page[1].title}
@@ -112,7 +112,30 @@ export function Navigation({
             <a
               className={clsx(
                 [secondaryLink && styles.secondaryLink],
-                "font-poppins text-Phone/buttonlarge py-4 px-2 text-secondary border-b-secondary black border-b-2 lg:hover:text-primary lg:hover:border-b-primary active:border-b-primary mt-16 lg:m-0 lg:p-0 lg:px-3 lg:text-Desktop/nav"
+                "hidden lg:block font-poppins text-Phone/buttonlarge py-4 px-2 text-secondary border-b-secondary black border-b-2 lg:hover:text-primary lg:hover:border-b-primary active:border-b-primary mt-16 lg:m-0 lg:p-0 lg:px-3 lg:text-Desktop/nav"
+              )}
+            >
+              {page[0].title}
+            </a>
+          </Link>
+          {/* mobile nav with function to close the menu */}
+          <Link href="/#stories">
+            <a
+              onClick={handleToggle}
+              className={clsx(
+                [secondaryLink && styles.secondaryLink],
+                "lg:hidden font-poppins text-Phone/buttonlarge py-4 px-2 text-secondary border-b-secondary black border-b-2 lg:hover:text-primary lg:hover:border-b-primary active:border-b-primary mt-16 lg:m-0 lg:p-0 lg:mx-4 lg:px-3 lg:text-Desktop/nav"
+              )}
+            >
+              {page[1].title}
+            </a>
+          </Link>
+          <Link href="/about">
+            <a
+              onClick={handleToggle}
+              className={clsx(
+                [secondaryLink && styles.secondaryLink],
+                "lg:hidden font-poppins text-Phone/buttonlarge py-4 px-2 text-secondary border-b-secondary black border-b-2 lg:hover:text-primary lg:hover:border-b-primary active:border-b-primary mt-16 lg:m-0 lg:p-0 lg:px-3 lg:text-Desktop/nav"
               )}
             >
               {page[0].title}

@@ -1,5 +1,5 @@
 import { client } from "../lib/client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // components
 import { Navigation } from "../components/molecules/Navigation";
@@ -38,13 +38,13 @@ export default function Home({ banner, navigation, page, interview, footer }) {
   const [visible, setVisible] = useState(3);
 
   const showMoreItems = () => {
-    console.log(isMore, visible);
-    setVisible(visible + 1);
+    setVisible(visible + 3);
 
-    if (visible == interview.length) {
+    if (visible + 3 === interview.length) {
       setIsMore(false);
     }
   };
+
   return (
     <>
       <Navigation
