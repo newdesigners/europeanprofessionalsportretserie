@@ -108,7 +108,7 @@ export function Interview({ interview }) {
         </div>
       </section>
       {interview.meerVerhalen && (
-        <h2 className="text-Phone/header2 lg:text-Desktop/Header2 font-merriweather text-center">
+        <h2 className="text-Phone/header2 lg:text-Desktop/Header2 font-merriweather text-center mt-12 lg:mt-16">
           {interview.meerVerhalen}
         </h2>
       )}

@@ -34,7 +34,7 @@ export function About({ about }) {
           {about.foto && (
             <img
               src={urlFor(about.foto)}
-              alt="foto"
+              alt={about.foto.alt ? about.foto.alt : "foto"}
               className="lg:col-start-5 lg:col-end-8"
             />
           )}
@@ -53,7 +53,9 @@ export function About({ about }) {
           {about.personImage && (
             <img
               src={urlFor(about.personImage)}
-              alt="foto remmelt"
+              alt={
+                about.personImage.alt ? about.personImage.alt : "photo Remelt"
+              }
               className="h-32 w-32 rounded-full my-4 mx-auto lg:h-60 lg:w-60"
             />
           )}
@@ -80,7 +82,11 @@ export function About({ about }) {
             {about.brandImages.map((logo) => (
               <img
                 src={urlFor(logo)}
-                alt={about.brandImages?.alt}
+                alt={
+                  about.brandImages?.alt
+                    ? about.brandImages?.alt
+                    : "brand images"
+                }
                 key={logo._key}
                 className="max-h-20 w-auto px-8"
               />

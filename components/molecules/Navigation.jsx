@@ -57,7 +57,12 @@ export function Navigation({
         {!open && (
           <Link href="/">
             <a>
-              <img src={urlFor(navigation[0].logo)} alt="Logo" />
+              <img
+                src={urlFor(navigation[0].logo)}
+                alt={
+                  navigation[0].logo.alt ? navigation[0].logo.alt : "brand logo"
+                }
+              />
             </a>
           </Link>
         )}
@@ -102,17 +107,21 @@ export function Navigation({
             <a
               className={clsx(
                 [secondaryLink && styles.secondaryLink],
-                "hidden lg:block font-poppins text-Phone/buttonlarge py-4 px-2 text-secondary border-b-secondary black border-b-2 lg:hover:text-primary lg:hover:border-b-primary active:border-b-primary mt-16 lg:m-0 lg:p-0 lg:mx-4 lg:px-3 lg:text-Desktop/nav"
+                "hidden lg:block font-poppins text-Phone/buttonlarge py-4 px-2 text-secondary border-b-secondary border-b-2 lg:hover:text-primary lg:hover:border-b-primary mt-16 lg:m-0 lg:p-0 lg:mx-4 lg:px-3 lg:text-Desktop/nav"
               )}
             >
               {page[1].title}
             </a>
           </Link>
+
           <Link href="/about">
             <a
               className={clsx(
+                router.pathname === "/about"
+                  ? "border-b-secondary"
+                  : "border-b-primary",
                 [secondaryLink && styles.secondaryLink],
-                "hidden lg:block font-poppins text-Phone/buttonlarge py-4 px-2 text-secondary border-b-secondary black border-b-2 lg:hover:text-primary lg:hover:border-b-primary active:border-b-primary mt-16 lg:m-0 lg:p-0 lg:px-3 lg:text-Desktop/nav"
+                "hidden lg:block font-poppins text-Phone/buttonlarge py-4 px-2 text-secondary border-b-secondary border-b-2 lg:hover:text-primary lg:hover:border-b-primary active:border-b-primary mt-16 lg:m-0 lg:p-0 lg:px-3 lg:text-Desktop/nav"
               )}
             >
               {page[0].title}

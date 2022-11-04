@@ -42,28 +42,28 @@ export default function StoryPage({
 
   const showMoreItems = () => {
     setVisible(visible + 3);
-
-    if (visible + 3 === interviewPrev.length) {
-      setIsMore(false);
-    }
+    visible + 3 < interviewPrev.length ? setIsMore(true) : setIsMore(false);
   };
+
   return (
     <>
       <Navigation navigation={navigation} page={page} />
       <Interview interview={interview} />
 
-      <div className="grid grid-cols-2 mt-4 pb-14 justify-items-center gap-y-4 gap-12 lg:gap-20 lg:gap-y-11 lg:grid-cols-3 lg:mt-12 lg:justify-items-center lg:mx-32">
-        {interviewPrev.slice(0, visible).map((interview) => (
-          <InterviewPreview
-            key={interview._id}
-            interview={interview}
-            page={page}
-          />
-        ))}
+      <div className="flex flex-col items-center pb-10 lg:pb-14">
+        <div className="grid grid-cols-2 mt-4 pb-14 justify-items-center gap-y-4 gap-12 lg:gap-20 lg:gap-y-11 lg:grid-cols-3 lg:mt-12 lg:justify-items-center lg:mx-32">
+          {interviewPrev.slice(0, visible).map((interview) => (
+            <InterviewPreview
+              key={interview._id}
+              interview={interview}
+              page={page}
+            />
+          ))}
+        </div>
+        {isMore && (
+          <ButtonLarge text={page[1].buttonMore} showMore={showMoreItems} />
+        )}
       </div>
-      {isMore && (
-        <ButtonLarge text={page[1].buttonMore} showMore={showMoreItems} />
-      )}
       <Footer footer={footer[0]} page={page} />
     </>
   );

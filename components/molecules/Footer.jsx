@@ -60,7 +60,7 @@ export function Footer({ footer, page }) {
             <img
               key={logo._key}
               src={urlFor(logo)}
-              alt="logo"
+              alt={logo.alt ? logo.alt : "logo image"}
               className="pb-8 last:pb-0"
             />
           ))}
