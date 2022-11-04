@@ -40,7 +40,9 @@ export default function Home({ banner, navigation, page, interview, footer }) {
   const showMoreItems = () => {
     setVisible(visible + 3);
 
-    if (visible + 3 === interview.length) {
+    if (visible + 3 < interview.length) {
+      setIsMore(true);
+    } else {
       setIsMore(false);
     }
   };
@@ -103,13 +105,14 @@ ANIMATIES
 [ ] pagina transities
 
 OVERIGE
-[ ] desktop style
-[ ] scroll smooth
-[ ] desktop menu
 [ ] navigatie link active blauw maken
+[ ] scroll smooth
 [ ] alt text op foto's
-[ ] fix routing, links
-[ ] interview quote afkorten als quote lang is
+[x] laad meer interview nog bij interview pagina
+[x] desktop style
+[x] desktop menu
+[x] fix routing, links
+[x] interview quote afkorten als quote lang is
 [x] Logo's bij about page in grid zetten
-[ ] laad meer button alleen tonen bij het laden van meer interviews anders niet
+[x] laad meer button alleen tonen bij het laden van meer interviews anders niet
 */

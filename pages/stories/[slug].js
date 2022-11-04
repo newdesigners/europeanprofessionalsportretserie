@@ -1,8 +1,9 @@
-import React from "react";
-
+import { useState } from "react";
 import { Footer } from "../../components/molecules/Footer";
 import { Interview } from "../../components/molecules/Interview";
 import { Navigation } from "../../components/molecules/Navigation";
+import { InterviewPreview } from "../../components/molecules/InterviewPreview";
+import { ButtonLarge } from "../../components/atoms/ButtonLarge";
 import { client } from "../../lib/client";
 
 export const getServerSideProps = async ({ locale, params: { slug } }) => {
@@ -15,19 +16,54 @@ export const getServerSideProps = async ({ locale, params: { slug } }) => {
   // interview
   const interviewQuery = `*[_type == "interview" && slug.current == '${slug}' && __i18n_lang == $lang][0]`;
   const interview = await client.fetch(interviewQuery, { lang: locale });
+
+  // interview
+  const interviewPrevQuery = `*[_type == "interview" && __i18n_lang == $lang]`;
+  const interviewPrev = await client.fetch(interviewPrevQuery, {
+    lang: locale,
+  });
   // footer
   const footerQuery = `*[_type == "footer" && __i18n_lang == $lang]`;
   const footer = await client.fetch(footerQuery, { lang: locale });
   return {
-    props: { navigation, page, interview, footer },
+    props: { navigation, page, interview, footer, interviewPrev },
   };
 };
 
-export default function StoryPage({ footer, navigation, page, interview }) {
+export default function StoryPage({
+  footer,
+  navigation,
+  page,
+  interview,
+  interviewPrev,
+}) {
+  const [isMore, setIsMore] = useState(true);
+  const [visible, setVisible] = useState(3);
+
+  const showMoreItems = () => {
+    setVisible(visible + 3);
+
+    if (visible + 3 === interviewPrev.length) {
+      setIsMore(false);
+    }
+  };
   return (
     <>
       <Navigation navigation={navigation} page={page} />
       <Interview interview={interview} />
+
+      <div className="grid grid-cols-2 mt-4 pb-14 justify-items-center gap-y-4 gap-12 lg:gap-20 lg:gap-y-11 lg:grid-cols-3 lg:mt-12 lg:justify-items-center lg:mx-32">
+        {interviewPrev.slice(0, visible).map((interview) => (
+          <InterviewPreview
+            key={interview._id}
+            interview={interview}
+            page={page}
+          />
+        ))}
+      </div>
+      {isMore && (
+        <ButtonLarge text={page[1].buttonMore} showMore={showMoreItems} />
+      )}
       <Footer footer={footer[0]} page={page} />
     </>
   );

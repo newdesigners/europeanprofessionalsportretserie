@@ -15,12 +15,12 @@ export function InterviewPreview({ interview, page }) {
             <img
               src={urlFor(interview.image)}
               alt={interview.image.alt ? interview.image.alt : "portret image"}
-              className=" h-44 object-cover lg:h-[432px]"
+              className=" h-44 object-cover lg:h-[432px] m-auto"
             />
           )}
 
           {interview.quote && (
-            <p className="text-Phone/Quote text-ellipsis overflow-hidden font-merriweather mt-2 pb-2 text-grey-80 text-center lg:text-Desktop/Quote ">
+            <p className="text-Phone/Quote text-ellipsis overflow-hidden font-merriweather mt-2 pb-2 text-grey-80 text-center lg:text-Desktop/Quote lg:mt-8 max-h-32 lg:max-h-20">
               {interview.quote}
             </p>
           )}
