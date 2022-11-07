@@ -15,7 +15,7 @@ export function InterviewPreview({ interview, page }) {
             <img
               src={urlFor(interview.image)}
               alt={interview.image.alt ? interview.image.alt : "portret image"}
-              className=" h-44 object-cover lg:h-[432px] m-auto"
+              className=" h-44 object-cover lg:h-[432px] m-auto xl:w-[448px]"
             />
           )}
 

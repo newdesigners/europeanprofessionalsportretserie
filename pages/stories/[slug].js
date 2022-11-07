@@ -7,21 +7,21 @@ import { ButtonLarge } from "../../components/atoms/ButtonLarge";
 import { client } from "../../lib/client";
 
 export const getStaticPaths = async ({ locales }) => {
-  const query = `*[_type == "interview" && __i18n_lang == $lang]{
-      "params": {
-        "slug": slug.current
-      }
-    }`;
+  const query = `*[_type == "interview" && __i18n_lang == $lang] {
+    slug {
+      current
+    }
+  }`;
 
   const interviews = await client.fetch(query, { lang: locales });
 
   const paths = interviews.map((interview) => ({
-    params: { slug: interview.slug.current },
+    params: { slug: interview.slug.current, lang: locales },
   }));
 
   return {
     paths,
-    fallback: "blocking",
+    fallback: true,
   };
 };
 
@@ -33,8 +33,11 @@ export const getStaticProps = async ({ locale, params: { slug } }) => {
   const pageQuery = `*[_type == "page" && __i18n_lang == $lang]`;
   const page = await client.fetch(pageQuery, { lang: locale });
   // interview
-  const interviewQuery = `*[_type == "interview" && slug.current == '${slug}' && __i18n_lang == $lang][0]`;
-  const interview = await client.fetch(interviewQuery, { lang: locale });
+  const interviewQuery = `*[_type == "interview" && slug.current == $slug && __i18n_lang == $lang][0]`;
+  const interview = await client.fetch(interviewQuery, {
+    lang: locale,
+    slug: slug,
+  });
 
   // interview
   const interviewPrevQuery = `*[_type == "interview" && __i18n_lang == $lang]`;
@@ -56,7 +59,7 @@ export default function StoryPage({
   interview,
   interviewPrev,
 }) {
-  console.log(interview?.slug.current);
+  console.log(interview?.slug.current, page[0].buttonMore, footer[0]);
 
   const [isMore, setIsMore] = useState(true);
   const [visible, setVisible] = useState(3);
@@ -73,7 +76,7 @@ export default function StoryPage({
 
       <div className="flex flex-col items-center pb-10 lg:pb-14">
         <div className="grid grid-cols-2 mt-4 pb-14 justify-items-center gap-y-4 gap-12 lg:gap-20 lg:gap-y-11 lg:grid-cols-3 lg:mt-12 lg:justify-items-center lg:mx-32">
-          {interviewPrev.slice(0, visible).map((interview) => (
+          {interviewPrev?.slice(0, visible).map((interview) => (
             <InterviewPreview
               key={interview._id}
               interview={interview}
@@ -82,7 +85,7 @@ export default function StoryPage({
           ))}
         </div>
         {isMore && (
-          <ButtonLarge text={page[1].buttonMore} showMore={showMoreItems} />
+          <ButtonLarge text={page[0].buttonMore} showMore={showMoreItems} />
         )}
       </div>
       <Footer footer={footer[0]} page={page} />

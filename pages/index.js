@@ -71,7 +71,7 @@ export default function Home({ banner, navigation, page, interview, footer }) {
           ))}
         </div>
         {isMore && (
-          <ButtonLarge text={page[1].buttonMore} showMore={showMoreItems} />
+          <ButtonLarge text={page[0].buttonMore} showMore={showMoreItems} />
         )}
       </main>
 
