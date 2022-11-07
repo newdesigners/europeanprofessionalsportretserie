@@ -20,7 +20,8 @@ export function Navigation({
 
   const changeLanguage = (e) => {
     const locale = e.target.value;
-    router.push(router.pathname, router.asPath, { locale });
+    const newRoute = router.push(router.pathname, router.asPath, { locale });
+    return newRoute;
   };
 
   const [open, setOpen] = useState(false);
@@ -34,7 +35,7 @@ export function Navigation({
     base: "lg:flex lg:justify-between z-10 w-full pt-6 px-4 lg:pb-6 lg:px-8",
     secondaryNav:
       "absolute lg:px-0 lg:border-0 lg:mx-8 lg:pt-0 border-0 lg:w-11/12",
-    secondaryLink: "lg:text-white lg:border-b lg:border-b-white",
+    secondaryLink: "lg:text-white",
     mainOpen: "border-b-primary flex justify-between border-b-4",
     secondaryBorder: "flex justify-between border-0",
     menuColor: "h-12 w-12 text-white",
@@ -106,8 +107,13 @@ export function Navigation({
           <Link href="/#stories">
             <a
               className={clsx(
-                [secondaryLink && styles.secondaryLink],
-                "hidden lg:block font-poppins text-Phone/buttonlarge py-4 px-2 text-secondary border-b-secondary border-b-2 lg:hover:text-primary lg:hover:border-b-primary mt-16 lg:m-0 lg:p-0 lg:mx-4 lg:px-3 lg:text-Desktop/nav"
+                [
+                  router.pathname === "/"
+                    ? "border-primary border-b-2"
+                    : "border-secondary border-b-2 ",
+                  secondaryLink && styles.secondaryLink,
+                ],
+                "hidden lg:block font-poppins text-Phone/buttonlarge py-4 px-2 text-secondary lg:hover:text-primary lg:hover:border-b-primary mt-16 lg:m-0 lg:p-0 lg:mx-4 lg:px-3 lg:text-Desktop/nav active:border-b-primary"
               )}
             >
               {page[1].title}
@@ -118,10 +124,15 @@ export function Navigation({
             <a
               className={clsx(
                 router.pathname === "/about"
-                  ? "border-b-secondary"
-                  : "border-b-primary",
-                [secondaryLink && styles.secondaryLink],
-                "hidden lg:block font-poppins text-Phone/buttonlarge py-4 px-2 text-secondary border-b-secondary border-b-2 lg:hover:text-primary lg:hover:border-b-primary active:border-b-primary mt-16 lg:m-0 lg:p-0 lg:px-3 lg:text-Desktop/nav"
+                  ? "border-primary border-b-2"
+                  : "border-secondary border-b-2",
+                [
+                  router.pathname === "/about"
+                    ? "border-primary border-b-2"
+                    : "border-white border-b-2",
+                  secondaryLink && styles.secondaryLink,
+                ],
+                "hidden lg:block font-poppins text-Phone/buttonlarge py-4 px-2 text-secondary lg:hover:text-primary lg:hover:border-b-primary active:border-b-primary mt-16 lg:m-0 lg:p-0 lg:px-3 lg:text-Desktop/nav"
               )}
             >
               {page[0].title}
@@ -132,8 +143,11 @@ export function Navigation({
             <a
               onClick={handleToggle}
               className={clsx(
+                router.pathname === "/"
+                  ? "border-primary border-b-2"
+                  : "border-secondary border-b-2",
                 [secondaryLink && styles.secondaryLink],
-                "lg:hidden font-poppins text-Phone/buttonlarge py-4 px-2 text-secondary border-b-secondary black border-b-2 lg:hover:text-primary lg:hover:border-b-primary active:border-b-primary mt-16 lg:m-0 lg:p-0 lg:mx-4 lg:px-3 lg:text-Desktop/nav"
+                "lg:hidden font-poppins text-Phone/buttonlarge py-4 px-2 text-secondary lg:hover:text-primary lg:hover:border-b-primary active:border-b-primary mt-16 lg:m-0 lg:p-0 lg:mx-4 lg:px-3 lg:text-Desktop/nav"
               )}
             >
               {page[1].title}
@@ -143,8 +157,11 @@ export function Navigation({
             <a
               onClick={handleToggle}
               className={clsx(
+                router.pathname === "/about"
+                  ? "border-primary border-b-2"
+                  : "border-secondary border-b-2",
                 [secondaryLink && styles.secondaryLink],
-                "lg:hidden font-poppins text-Phone/buttonlarge py-4 px-2 text-secondary border-b-secondary black border-b-2 lg:hover:text-primary lg:hover:border-b-primary active:border-b-primary mt-16 lg:m-0 lg:p-0 lg:px-3 lg:text-Desktop/nav"
+                "lg:hidden font-poppins text-Phone/buttonlarge py-4 px-2 text-secondary lg:hover:text-primary lg:hover:border-b-primary active:border-b-primary mt-16 lg:m-0 lg:p-0 lg:px-3 lg:text-Desktop/nav"
               )}
             >
               {page[0].title}
