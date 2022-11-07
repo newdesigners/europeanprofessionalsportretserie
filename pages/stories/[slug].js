@@ -6,7 +6,26 @@ import { InterviewPreview } from "../../components/molecules/InterviewPreview";
 import { ButtonLarge } from "../../components/atoms/ButtonLarge";
 import { client } from "../../lib/client";
 
-export const getServerSideProps = async ({ locale, params: { slug } }) => {
+export const getStaticPaths = async ({ locales }) => {
+  const query = `*[_type == "interview" && __i18n_lang == $lang]{
+      "params": {
+        "slug": slug.current
+      }
+    }`;
+
+  const interviews = await client.fetch(query, { lang: locales });
+
+  const paths = interviews.map((interview) => ({
+    params: { slug: interview.slug.current },
+  }));
+
+  return {
+    paths,
+    fallback: "blocking",
+  };
+};
+
+export const getStaticProps = async ({ locale, params: { slug } }) => {
   // navigation
   const navigationQuery = `*[_type == "navigation" && __i18n_lang == $lang]`;
   const navigation = await client.fetch(navigationQuery, { lang: locale });
@@ -37,6 +56,8 @@ export default function StoryPage({
   interview,
   interviewPrev,
 }) {
+  console.log(interview?.slug.current);
+
   const [isMore, setIsMore] = useState(true);
   const [visible, setVisible] = useState(3);
 
@@ -48,7 +69,7 @@ export default function StoryPage({
   return (
     <>
       <Navigation navigation={navigation} page={page} />
-      <Interview interview={interview} />
+      {interview?.slug.current && <Interview interview={interview} />}
 
       <div className="flex flex-col items-center pb-10 lg:pb-14">
         <div className="grid grid-cols-2 mt-4 pb-14 justify-items-center gap-y-4 gap-12 lg:gap-20 lg:gap-y-11 lg:grid-cols-3 lg:mt-12 lg:justify-items-center lg:mx-32">

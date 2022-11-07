@@ -86,6 +86,8 @@ export default {
       title: "Meer verhalen",
       name: "meerVerhalen",
       type: "string",
+      description:
+        'In Dutch write: "Meer Verhalen". In English write "More Stories"',
     },
   ],
 };
