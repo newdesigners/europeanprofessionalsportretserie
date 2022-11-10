@@ -16,10 +16,14 @@ export default {
       name: "slug",
       title: "Slug",
       type: "slug",
-      description: "In the English version add =en after the name",
+      description: "Hit generate to create the slug!",
       options: {
         source: "name",
         maxLength: 90,
+        source: (doc) =>
+          `${doc.name.toLowerCase().replace(/\s+/g, "-").slice(0, 200)}=${
+            doc.__i18n_lang
+          }`,
       },
     },
     {

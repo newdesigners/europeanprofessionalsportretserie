@@ -16,7 +16,8 @@ export const getStaticPaths = async ({ locales }) => {
   const interviews = await client.fetch(query, { lang: locales });
 
   const paths = interviews.map((interview) => ({
-    params: { slug: interview.slug.current, lang: locales },
+    params: { slug: interview.slug.current },
+    locale: locales,
   }));
 
   return {
@@ -59,8 +60,6 @@ export default function StoryPage({
   interview,
   interviewPrev,
 }) {
-  console.log(interview?.slug.current, page[0].buttonMore, footer[0]);
-
   const [isMore, setIsMore] = useState(true);
   const [visible, setVisible] = useState(3);
 

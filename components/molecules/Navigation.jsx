@@ -19,8 +19,16 @@ export function Navigation({
   const { locale } = router;
 
   const changeLanguage = (e) => {
-    const locale = e.target.value;
-    const newRoute = router.push(router.pathname, router.asPath, { locale });
+    // replace the slug with the current locale
+    const newLocale = e.target.value;
+    const newPathWithChangedSlugLanguage = router.asPath.endsWith(locale)
+      ? router.asPath.replace(locale, newLocale)
+      : router.asPath;
+    const newRoute = router.push(
+      newPathWithChangedSlugLanguage,
+      newPathWithChangedSlugLanguage,
+      { locale: newLocale }
+    );
     return newRoute;
   };
 
@@ -127,10 +135,10 @@ export function Navigation({
                   ? "border-primary border-b-2"
                   : "border-secondary border-b-2",
                 [
+                  secondaryLink && styles.secondaryLink,
                   router.pathname === "/about"
                     ? "border-primary border-b-2"
                     : "border-white border-b-2",
-                  secondaryLink && styles.secondaryLink,
                 ],
                 "hidden lg:block font-poppins text-Phone/buttonlarge py-4 px-2 text-secondary lg:hover:text-primary lg:hover:border-b-primary active:border-b-primary mt-16 lg:m-0 lg:p-0 lg:px-3 lg:text-Desktop/nav"
               )}
