@@ -44,7 +44,12 @@ export default {
     {
       name: "quote",
       title: "Quote",
-      type: "string",
+      type: "array",
+      of: [
+        {
+          type: "block",
+        },
+      ],
     },
     {
       name: "role",

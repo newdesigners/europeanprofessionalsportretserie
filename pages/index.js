@@ -79,13 +79,3 @@ export default function Home({ banner, navigation, page, interview, footer }) {
     </>
   );
 }
-
-/* TODO: 
-ANIMATIES
-[ ] menu transitie
-[ ] pagina transities
-
-OVERIGE
-[ ] navigatie link active blauw maken
-[ ] scroll smooth
-*/
