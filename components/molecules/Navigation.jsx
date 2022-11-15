@@ -43,7 +43,7 @@ export function Navigation({
     base: "lg:flex lg:justify-between z-10 w-full pt-6 px-4 lg:pb-6 lg:px-8",
     secondaryNav:
       "absolute lg:px-0 lg:border-0 lg:mx-8 lg:pt-0 border-0 lg:w-11/12",
-    secondaryLink: "lg:text-white",
+    secondaryLink: "lg:text-white border-b-2 border-white",
     mainOpen: "border-b-primary flex justify-between border-b-4",
     secondaryBorder: "flex justify-between border-0",
     menuColor: "h-12 w-12 text-white",
@@ -134,12 +134,7 @@ export function Navigation({
                 router.pathname === "/about"
                   ? "border-primary border-b-2"
                   : "border-secondary border-b-2",
-                [
-                  secondaryLink && styles.secondaryLink,
-                  router.pathname === "/about"
-                    ? "border-primary border-b-2"
-                    : "border-white border-b-2",
-                ],
+                [secondaryLink && styles.secondaryLink],
                 "hidden lg:block font-poppins text-Phone/buttonlarge py-4 px-2 text-secondary lg:hover:text-primary lg:hover:border-b-primary active:border-b-primary mt-16 lg:m-0 lg:p-0 lg:px-3 lg:text-Desktop/nav"
               )}
             >

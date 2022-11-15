@@ -11,6 +11,11 @@ function MyApp({ Component, pageProps }) {
           content="European proffesionals. interviews, story's"
         />
         <link rel="icon" href="/favicon.ico" />
+        <script
+          defer
+          data-domain="european-professionals.netlify.app"
+          src="https://plausible.io/js/script.js"
+        ></script>
       </Head>
       <Component {...pageProps} />
     </>
