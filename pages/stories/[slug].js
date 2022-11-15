@@ -60,7 +60,7 @@ export default function StoryPage({
   interview,
   interviewPrev,
 }) {
-  const [isMore, setIsMore] = useState(true);
+  const [isMore, setIsMore] = useState(false);
   const [visible, setVisible] = useState(3);
 
   const showMoreItems = () => {
