@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 // components
 import { Navigation } from "../components/molecules/Navigation";
-import { Banner } from "../components/molecules/banner";
+import { Banner } from "../components/molecules/Banner";
 import { InterviewPreview } from "../components/molecules/InterviewPreview";
 import { Footer } from "../components/molecules/Footer";
 import { ButtonLarge } from "../components/atoms/ButtonLarge";
