@@ -22,7 +22,7 @@ export const getStaticPaths = async ({ locales }) => {
 
   return {
     paths,
-    fallback: true,
+    fallback: false,
   };
 };
 
@@ -67,7 +67,7 @@ export default function StoryPage({
     setVisible(visible + 3);
     visible + 3 < interviewPrev.length ? setIsMore(true) : setIsMore(false);
   };
-
+  console.log(page);
   return (
     <>
       <Navigation navigation={navigation} page={page} />
