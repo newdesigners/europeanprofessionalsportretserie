@@ -1,5 +1,6 @@
 import { urlFor } from "../../lib/client";
 import { IoIosArrowDropdown } from "react-icons/io";
+import Link from "next/link";
 
 export function Banner({ banner }) {
   return (
@@ -20,7 +21,9 @@ export function Banner({ banner }) {
             {banner[0].italicText}
           </span>
         </div>
-        <IoIosArrowDropdown className="text-white h-12 w-12 mt-12 lg:h-14 lg:w-14" />
+        <Link href="/#stories">
+          <IoIosArrowDropdown className="text-white h-12 w-12 mt-12 lg:h-14 lg:w-14" />
+        </Link>
       </div>
     </div>
   );
