@@ -27,4 +27,11 @@
     padding: 0;
     margin: 0;
   }
+  .fixedImportant {
+    position: fixed !important;
+  }
+}
+
+.fixedImportant {
+  position: fixed !important;
 }
