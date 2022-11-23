@@ -56,7 +56,7 @@ export function About({ about }) {
               alt={
                 about.personImage.alt ? about.personImage.alt : "photo Remelt"
               }
-              className="h-32 w-32 rounded-full my-4 mx-auto lg:h-60 lg:w-60"
+              className="h-32 w-32 rounded-full my-4 mx-auto lg:h-60 lg:w-60 lg:p-4 2xl:p-0"
             />
           )}
           <div className="lg:flex lg:flex-col lg:items-start">

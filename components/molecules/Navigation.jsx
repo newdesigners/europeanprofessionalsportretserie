@@ -5,6 +5,9 @@ import { urlFor } from "../../lib/client";
 import { MdMenu, MdClose } from "react-icons/md";
 import { clsx } from "clsx";
 
+import NLFlag from "../atoms/NLFlag";
+import GBFlag from "../atoms/NLFlag";
+
 export function Navigation({
   navigation,
   page,
@@ -41,8 +44,7 @@ export function Navigation({
 
   const styles = {
     base: "lg:flex lg:justify-between z-10 w-full pt-6 px-4 lg:pb-6 lg:px-8",
-    secondaryNav:
-      "absolute lg:px-0 lg:border-0 lg:mx-8 lg:pt-0 border-0 lg:w-11/12",
+    secondaryNav: "absolute lg:px-0 lg:border-0 lg:mx-8 lg:pt-0 border-0 ",
     secondaryLink: "lg:text-white border-b-2 border-white",
     mainOpen: "border-b-primary flex justify-between border-b-4",
     secondaryBorder: "flex justify-between border-0",
@@ -56,7 +58,7 @@ export function Navigation({
         className={clsx(
           [styles.base, secondaryNav && styles.secondaryNav],
           open
-            ? "bg-white lg:bg-opacity-0"
+            ? "bg-white lg:bg-opacity-0 fixed lg:relative"
             : [
                 mainOpen && styles.mainOpen,
                 secondaryBorder && styles.secondaryBorder,
@@ -131,7 +133,9 @@ export function Navigation({
           <Link href="/about">
             <a
               className={clsx(
-                router.pathname === "/about"
+                router.pathname === "/"
+                  ? "border-white border-b-2"
+                  : router.pathname === "/about"
                   ? "border-primary border-b-2"
                   : "border-secondary border-b-2",
                 [secondaryLink && styles.secondaryLink],
@@ -170,20 +174,92 @@ export function Navigation({
               {page[0].title}
             </a>
           </Link>
-          <select
-            onChange={changeLanguage}
-            defaultValue={locale}
-            className="mt-20 lg:mt-0 lg:p-0 lg:mx-8"
-          >
-            <option value="nl-nl">
-              {/* <img src={nlFlag} alt="nl icon" /> */}
-              🇳🇱
-            </option>
-            <option value="en-uk">
-              {/* <img src={gbFlag} alt="gb icon" /> */}
-              🇬🇧
-            </option>
-          </select>
+          <div onClick={changeLanguage} defaultValue={locale}>
+            <div value="nl-nl">
+              <p>
+                <svg
+                  width={30}
+                  height={21}
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clipPath="url(#prefix__clip0_179_1182)">
+                    <path d="M0 0h30v21H0V0z" fill="#fff" />
+                    <path d="M0 0h30v7H0V0z" fill="#CD1F2A" />
+                    <path d="M0 13.908h30v7H0v-7z" fill="#1D4185" />
+                  </g>
+                  <defs>
+                    <clipPath id="prefix__clip0_179_1182">
+                      <path fill="#fff" d="M0 0h30v21H0z" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </p>
+            </div>
+            <div value="en-uk">
+              <p>
+                <svg
+                  width={30}
+                  height={21}
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clipPath="url(#prefix__clip0_179_1163)">
+                    <path d="M0 0h30v21H0V0z" fill="#fff" />
+                    <path
+                      d="M16.875 0h-3.75v8.53H0v3.938h13.125V21h3.75v-8.532H30V8.531H16.875V0z"
+                      fill="#D80027"
+                    />
+                    <path
+                      d="M23.073 14.152L30 18.192v-4.04h-6.927zm-4.812 0L30 21v-1.937l-8.42-4.911h-3.32zM26.873 21l-8.612-5.024V21h8.612z"
+                      fill="#0052B4"
+                    />
+                    <path
+                      d="M18.26 14.152L30 21v-1.937l-8.42-4.911h-3.32z"
+                      fill="#fff"
+                    />
+                    <path
+                      d="M18.26 14.152L30 21v-1.937l-8.42-4.911h-3.32z"
+                      fill="#D80027"
+                    />
+                    <path
+                      d="M5.293 14.152L0 17.24v-3.088h5.293zm6.446.87V21H1.494l10.245-5.977z"
+                      fill="#0052B4"
+                    />
+                    <path
+                      d="M8.42 14.152L0 19.063V21l11.74-6.848H8.42z"
+                      fill="#D80027"
+                    />
+                    <path
+                      d="M6.927 6.848L0 2.807v4.04h6.927zm4.812 0L0 0v1.936l8.42 4.912h3.32zM3.127 0l8.612 5.024V0H3.127z"
+                      fill="#0052B4"
+                    />
+                    <path
+                      d="M11.74 6.848L0 0v1.936l8.42 4.912h3.32z"
+                      fill="#fff"
+                    />
+                    <path
+                      d="M11.74 6.848L0 0v1.936l8.42 4.912h3.32z"
+                      fill="#D80027"
+                    />
+                    <path
+                      d="M24.707 6.848L30 3.76v3.088h-5.293zm-6.446-.871V0h10.245L18.261 5.977z"
+                      fill="#0052B4"
+                    />
+                    <path
+                      d="M21.58 6.848L30 1.936V0L18.26 6.848h3.32z"
+                      fill="#D80027"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="prefix__clip0_179_1163">
+                      <path fill="#fff" d="M0 0h30v21H0z" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </p>
+            </div>
+          </div>
         </ul>
       </div>
     </nav>

@@ -20,9 +20,9 @@ export function InterviewPreview({ interview, page }) {
           )}
 
           {interview.quote && (
-            <div className="text-Phone/Quote text-ellipsis overflow-hidden font-merriweather mt-2 pb-2 text-grey-80 text-center lg:text-Desktop/Quote lg:mt-8 max-h-32 lg:max-h-20">
-              <PortableText value={interview?.quote} />
-            </div>
+            <p className="text-Phone/Quote text-ellipsis overflow-hidden font-merriweather mt-2 pb-2 text-grey-80 text-center lg:text-Desktop/Quote lg:mt-8 max-h-32 lg:max-h-20">
+              {interview.quote}
+            </p>
           )}
         </div>
 

@@ -48,9 +48,9 @@ export function Interview({ interview }) {
             </div>
           </div>
 
-          <span className="text-Phone/Quote text-grey-80 font-merriweather text-center pb-6 lg:text-Desktop/Quote">
-            <PortableText value={interview?.quote} />
-          </span>
+          <p className="text-Phone/Quote text-grey-80 font-merriweather text-center pb-6 lg:text-Desktop/Quote">
+            {interview?.quote}
+          </p>
 
           <hr className="text-grey-60 pb-4 lg:hidden" />
         </div>

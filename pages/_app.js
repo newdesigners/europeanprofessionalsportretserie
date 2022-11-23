@@ -6,10 +6,10 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>European proffesionals</title>
+        <title>European professionals</title>
         <meta
           name="description"
-          content="European proffesionals. interviews, story's"
+          content="European professionals. interviews, story's"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
