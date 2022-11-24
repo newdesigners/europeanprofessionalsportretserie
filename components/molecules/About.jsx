@@ -27,7 +27,7 @@ export function About({ about }) {
         )}
         <div className="lg:flex lg:items-start">
           {about.onsVerhaal1 && (
-            <div className="py-4 prose text-Phone/Label text-secondary font-merriweather lg:col-start-2 col-end-4 lg:py-16 prose-a:text-primary">
+            <div className="py-4 prose text-Phone/Label text-secondary font-merriweather lg:col-start-2 lg:col-end-4 lg:py-16 prose-a:text-primary md:m-auto lg:max-w-none">
               <PortableText value={about.onsVerhaal1} />
             </div>
           )}
@@ -35,12 +35,12 @@ export function About({ about }) {
             <img
               src={urlFor(about.foto)}
               alt={about.foto.alt ? about.foto.alt : "foto"}
-              className="lg:col-start-5 lg:col-end-8"
+              className="lg:col-start-5 lg:col-end-8 md:m-auto"
             />
           )}
         </div>
         {about.onsVerhaal2 && (
-          <div className="py-4 text-Phone/Label text-secondary font-merriweather prose-a:text-primary">
+          <div className="py-4 text-Phone/Label text-secondary font-merriweather prose-a:text-primary md:m-auto lg:m-0 prose lg:col-start-2 lg:col-end-8">
             <PortableText value={about.onsVerhaal2} />
           </div>
         )}
@@ -67,7 +67,7 @@ export function About({ about }) {
             )}
 
             {about.persoonAchterHetVerhaal && (
-              <div className="prose text-Phone/Label font-merriweather prose-a:text-primary">
+              <div className="prose text-Phone/Label font-merriweather prose-a:text-primary md:m-auto">
                 <PortableText value={about.persoonAchterHetVerhaal} />
               </div>
             )}

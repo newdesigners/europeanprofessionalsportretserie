@@ -44,7 +44,7 @@ export function Navigation({
 
   const styles = {
     base: "lg:flex lg:justify-between z-10 w-full pt-6 px-4 lg:pb-6 lg:px-8",
-    secondaryNav: "absolute lg:px-0 lg:border-0 lg:pt-0 border-0 ml-8 ",
+    secondaryNav: "absolute lg:px-0 lg:border-0 lg:pt-0 border-0 lg:pl-8",
     secondaryLink: "lg:text-white border-b-2 border-white",
     mainOpen: "border-b-primary flex justify-between border-b-4",
     secondaryBorder: "flex justify-between border-0",
@@ -123,7 +123,7 @@ export function Navigation({
                     : "border-secondary border-b-2 ",
                   secondaryLink && styles.secondaryLink,
                 ],
-                "hidden lg:block font-poppins text-Phone/buttonlarge py-4 px-2 text-secondary lg:hover:text-primary lg:hover:border-b-primary mt-16 lg:m-0 lg:p-0 lg:mx-4 lg:text-Desktop/nav active:border-b-primary"
+                "hidden lg:block font-poppins text-Phone/buttonlarge py-4 px-2 text-secondary lg:hover:text-primary lg:hover:border-b-primary mt-8 lg:m-0 lg:py-0 lg:text-Desktop/nav active:border-b-primary"
               )}
             >
               {page[1].title}
@@ -139,7 +139,7 @@ export function Navigation({
                   ? "border-primary border-b-2"
                   : "border-secondary border-b-2",
                 [secondaryLink && styles.secondaryLink],
-                "hidden lg:block font-poppins text-Phone/buttonlarge lg:mx-16 py-4 px-2 text-secondary lg:hover:text-primary lg:hover:border-b-primary active:border-b-primary mt-16 lg:m-0 lg:p-0 lg:text-Desktop/nav"
+                "hidden lg:block font-poppins text-Phone/buttonlarge lg:mx-14 py-4 px-2 text-secondary lg:hover:text-primary lg:hover:border-b-primary active:border-b-primary mt-8 lg:m-0 lg:py-0 lg:text-Desktop/nav"
               )}
             >
               {page[0].title}
@@ -177,7 +177,7 @@ export function Navigation({
           <div
             defaultValue={locale}
             onClick={() => setDropdown(!dropdown)}
-            className="lg:mr-32"
+            className="lg:pr-32"
           >
             {(dropdown || locale == "nl-nl") && (
               <div onClick={(e) => changeLanguage("nl-nl")} value="nl-nl">
