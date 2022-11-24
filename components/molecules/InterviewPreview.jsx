@@ -7,7 +7,7 @@ export function InterviewPreview({ interview, page }) {
   return (
     <>
       <div
-        className="flex flex-col w-36 h-96 lg:w-auto lg:h-[672px] items-center justify-between"
+        className="flex flex-col w-36 h-96 lg:w-auto lg:h-[672px] items-center lg:justify-between justify-evenly"
         key={interview.id}
       >
         <div className="lg:flex lg:justify-center lg:flex-col">
@@ -20,7 +20,7 @@ export function InterviewPreview({ interview, page }) {
           )}
 
           {interview.quote && (
-            <p className="text-Phone/Quote text-ellipsis overflow-hidden font-merriweather mt-2 pb-2 text-grey-80 text-center lg:text-Desktop/Quote lg:mt-8 max-h-32 lg:max-h-20">
+            <p className="text-Phone/Quote line-clamp-3 font-merriweather mt-2 mb-2 text-grey-80 text-center lg:text-Desktop/Quote lg:mt-8 max-h-32 lg:max-h-20">
               {interview.quote}
             </p>
           )}
