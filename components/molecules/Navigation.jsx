@@ -204,7 +204,7 @@ export function Navigation({
             )}
             {(dropdown || locale == "en-uk") && (
               <div onClick={(e) => changeLanguage("en-uk")} value="en-uk">
-                <p>
+                <p className={clsx(dropdown && "pt-2")}>
                   <svg
                     width={30}
                     height={21}

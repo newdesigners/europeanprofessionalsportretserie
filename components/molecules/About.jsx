@@ -14,7 +14,7 @@ export function About({ about }) {
           />
         )}
         {about.title && (
-          <h2 className="text-Phone/header2 font-merriweather-bold text-secondary text-center absolute bg-white bottom-0 py-4 mx-4 w-11/12 lg:text-Desktop/Header2 lg:py-8">
+          <h2 className="text-Phone/header2 font-merriweather-bold text-secondary text-center absolute bg-white bottom-0 py-4 mx-4 w-11/12 lg:text-Desktop/Header2 lg:py-8 -mb-[1px]">
             {about.title}
           </h2>
         )}
