@@ -18,14 +18,15 @@ export function Interview({ interview }) {
             </h2>
           )}
           {interview?.role && (
-            <h3 className="text-Phone/header3 text-grey-60 font-merriweather pt-2 text-center lg:text-Desktop/Header3 lg:text-left">
+            <h3 className="text-Phone/header3 text-grey-60 font-merriweather pt-2 text-center lg:text-Desktop/Header3 lg:text-left lg:pb-4">
               {interview.role}
             </h3>
           )}
           <hr className="text-grey-60 pb-4 hidden lg:block" />
         </div>
 
-        <div className="lg:col-start-2 lg:col-end-5 hidden lg:block">
+        {/* On phone hidden, desktop showing */}
+        <div className="lg:col-start-2 lg:col-end-5 hidden lg:block lg:pb-8 ">
           <span className="font-merriweather text-Phone/Label text-grey-80 prose">
             <PortableText value={interview?.interviewText} />
           </span>
@@ -55,7 +56,8 @@ export function Interview({ interview }) {
           <hr className="text-grey-60 pb-4 lg:hidden" />
         </div>
 
-        <div className="lg:col-start-2 lg:col-end-5 lg:hidden">
+        {/* on phone visible, on desktop hidden */}
+        <div className="lg:col-start-2 lg:col-end-5 lg:hidden pb-4">
           <span className="font-merriweather text-Phone/Label text-grey-80 prose">
             <PortableText value={interview?.interviewText} />
           </span>

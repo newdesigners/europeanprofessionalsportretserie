@@ -43,7 +43,7 @@ export function Navigation({
   };
 
   const styles = {
-    base: "lg:flex lg:justify-between z-10 w-full pt-6 px-4 lg:pb-6 lg:px-8",
+    base: "lg:flex lg:justify-between z-10 w-full pt-6 px-4 lg:pb-6 lg:px-8 pb-4",
     secondaryNav: "absolute lg:px-0 lg:border-0 lg:pt-0 border-0 lg:pl-8",
     secondaryLink: "lg:text-white border-b-2 border-white",
     mainOpen: "border-b-primary flex justify-between border-b-4",
@@ -177,7 +177,7 @@ export function Navigation({
           <div
             defaultValue={locale}
             onClick={() => setDropdown(!dropdown)}
-            className="lg:pr-32"
+            className="lg:pr-32 pt-16 lg:pt-0"
           >
             {(dropdown || locale == "nl-nl") && (
               <div onClick={(e) => changeLanguage("nl-nl")} value="nl-nl">

@@ -10,7 +10,7 @@ export function About({ about }) {
           <img
             src={urlFor(about.landingFoto)}
             alt={about.landingFoto.alt ? about.landingFoto.alt : "landing foto"}
-            className="h-80 object-cover lg:h-96 lg:w-screen lg:mx-8"
+            className="h-80 object-cover lg:h-96 lg:w-screen lg:mx-8 w-full"
           />
         )}
         {about.title && (
@@ -35,7 +35,7 @@ export function About({ about }) {
             <img
               src={urlFor(about.foto)}
               alt={about.foto.alt ? about.foto.alt : "foto"}
-              className="lg:col-start-5 lg:col-end-8 md:m-auto"
+              className="lg:col-start-5 lg:col-end-8 m-auto"
             />
           )}
         </div>
