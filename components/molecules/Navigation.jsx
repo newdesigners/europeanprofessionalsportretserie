@@ -177,11 +177,14 @@ export function Navigation({
           <div
             defaultValue={locale}
             onClick={() => setDropdown(!dropdown)}
-            className="lg:pr-32 pt-16 lg:pt-0"
+            className={clsx(
+              "lg:pr-32 pt-16 lg:pt-0",
+              dropdown && "lg:relative"
+            )}
           >
             {(dropdown || locale == "nl-nl") && (
               <div onClick={(e) => changeLanguage("nl-nl")} value="nl-nl">
-                <p>
+                <p className={clsx(dropdown && "lg:absolute")}>
                   <svg
                     width={30}
                     height={21}
@@ -204,7 +207,11 @@ export function Navigation({
             )}
             {(dropdown || locale == "en-uk") && (
               <div onClick={(e) => changeLanguage("en-uk")} value="en-uk">
-                <p className={clsx(dropdown && "pt-2")}>
+                <p
+                  className={clsx(
+                    dropdown && "pt-2 lg:mt-8 lg:pt-0 lg:absolute lg:pr-32"
+                  )}
+                >
                   <svg
                     width={30}
                     height={21}
