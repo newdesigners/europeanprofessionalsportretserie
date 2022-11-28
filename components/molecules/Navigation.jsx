@@ -182,7 +182,14 @@ export function Navigation({
               onClick={() => setDropdown(!dropdown)}
               className={clsx("pt-16 lg:pt-0", dropdown && "")}
             >
-              <div className="lg:absolute lg:top-5 lg:right-28 lg:pr-2">
+              <div
+                className={clsx(
+                  "lg:absolute lg:pr-2",
+                  secondaryLink
+                    ? "lg:top-5 lg:right-28"
+                    : "lg:top-10 lg:right-36"
+                )}
+              >
                 {(dropdown || locale == "nl-nl") && (
                   <div onClick={(e) => changeLanguage("nl-nl")} value="nl-nl">
                     <p className={clsx(dropdown && "")}>
