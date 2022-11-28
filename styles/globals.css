@@ -30,6 +30,9 @@
   .fixedImportant {
     position: fixed !important;
   }
+  html {
+    scroll-behavior: smooth !important;
+  }
 }
 
 .fixedImportant {
