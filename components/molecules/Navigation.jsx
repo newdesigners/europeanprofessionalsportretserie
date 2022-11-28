@@ -176,11 +176,10 @@ export function Navigation({
             </a>
           </Link>
           {/* language switcher */}
-          <li>
+          <li className="mt-16 lg:mt-0 flex">
             <button
               defaultValue={locale}
               onClick={() => setDropdown(!dropdown)}
-              className={clsx("pt-16 lg:pt-0", dropdown && "")}
             >
               <div
                 className={clsx(
