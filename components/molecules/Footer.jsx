@@ -12,12 +12,12 @@ export function Footer({ footer, page }) {
         <div>
           <ul className="flex flex-col">
             <Link href="/#stories">
-              <a className="text-Phone/buttonlarge border-b w-fit mb-4 lg:mb-8 lg:text-Desktop/Label">
+              <a className="text-Phone/buttonlarge border-b w-fit mb-4 lg:mb-8 lg:text-Desktop/Label hover:text-primary">
                 {page[1].title}
               </a>
             </Link>
             <Link href="/about">
-              <a className="text-Phone/buttonlarge border-b w-fit lg:text-Desktop/Label">
+              <a className="text-Phone/buttonlarge border-b w-fit lg:text-Desktop/Label hover:text-primary">
                 {page[0].title}
               </a>
             </Link>
@@ -26,7 +26,7 @@ export function Footer({ footer, page }) {
           <p className="pt-8 text-Phone/Label lg:text-Desktop/Label">
             {footer.contact}
           </p>
-          <Link href="/">
+          <Link href={footer?.email}>
             <a>
               <MdEmail className="h-6 w-6 lg:h-8 lg:w-8 lg:text-Desktop/Label" />
             </a>
@@ -36,18 +36,18 @@ export function Footer({ footer, page }) {
             {footer.volgOns}
           </p>
           <div className="flex pt-2">
-            <Link href="/">
-              <a className="pr-8">
+            <Link href={footer?.twitter}>
+              <a className="pr-8" target="_blank" rel="noopener noreferrer">
                 <BsTwitter className="h-6 w-6 lg:h-8 lg:w-8" />
               </a>
             </Link>
-            <Link href="/">
-              <a className="pr-8">
+            <Link href={footer?.linkedin}>
+              <a className="pr-8" target="_blank" rel="noopener noreferrer">
                 <BsLinkedin className="h-6 w-6 lg:h-8 lg:w-8" />
               </a>
             </Link>
-            <Link href="/">
-              <a className="pr-8">
+            <Link href={footer?.instagram}>
+              <a className="pr-8" target="_blank" rel="noopener noreferrer">
                 <FiInstagram className="h-6 w-6 lg:h-8 lg:w-8" />
               </a>
             </Link>

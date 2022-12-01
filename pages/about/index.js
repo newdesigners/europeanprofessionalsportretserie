@@ -4,6 +4,7 @@ import { client } from "../../lib/client";
 import { About } from "../../components/molecules/About";
 import { Footer } from "../../components/molecules/Footer";
 import { Navigation } from "../../components/molecules/Navigation";
+import Head from "next/head";
 
 export const getServerSideProps = async ({ locale }) => {
   // navigation
@@ -27,6 +28,15 @@ export const getServerSideProps = async ({ locale }) => {
 export default function AboutPage({ navigation, page, about, footer }) {
   return (
     <>
+      <Head>
+        <title>{about[0]?.title}</title>
+        <meta name="description" content="About us page" />
+        <meta
+          property="og:title"
+          content="About - Portraits of European Professionals"
+        />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Navigation navigation={navigation} page={page} />
       <About about={about[0]} />
       <Footer footer={footer[0]} page={page} />

@@ -27,7 +27,7 @@ export function About({ about }) {
         )}
         <div className="lg:flex lg:items-start">
           {about.onsVerhaal1 && (
-            <div className="py-4 prose text-Phone/Label text-secondary font-merriweather lg:col-start-2 lg:col-end-4 lg:py-16 prose-a:text-primary md:m-auto lg:max-w-none">
+            <div className="py-4 prose text-Phone/Label text-secondary font-merriweather lg:col-start-2 lg:col-end-4 lg:py-16 prose-a:text-primary hover:prose-a:text-grey-60 hover:prose-a:border-b-2 hover:prose-a:border-grey-60 md:m-auto lg:max-w-none">
               <PortableText value={about.onsVerhaal1} />
             </div>
           )}
@@ -40,7 +40,7 @@ export function About({ about }) {
           )}
         </div>
         {about.onsVerhaal2 && (
-          <div className="py-4 text-Phone/Label text-secondary font-merriweather prose-a:text-primary md:m-auto lg:m-0 prose lg:col-start-2 lg:col-end-8">
+          <div className="py-4 text-Phone/Label text-secondary font-merriweather prose-a:text-primary hover:prose-a:text-grey-60 hover:prose-a:border-b-2 hover:prose-a:border-grey-60 md:m-auto lg:m-0 prose lg:col-start-2 lg:col-end-8">
             <PortableText value={about.onsVerhaal2} />
           </div>
         )}
@@ -67,7 +67,7 @@ export function About({ about }) {
             )}
 
             {about.persoonAchterHetVerhaal && (
-              <div className="prose text-Phone/Label font-merriweather prose-a:text-primary md:m-auto">
+              <div className="prose text-Phone/Label font-merriweather prose-a:text-primary hover:prose-a:text-grey-60 hover:prose-a:border-b-2 hover:prose-a:border-grey-60 md:m-auto">
                 <PortableText value={about.persoonAchterHetVerhaal} />
               </div>
             )}
@@ -98,7 +98,7 @@ export function About({ about }) {
             {about.wilJeJouwVerhaalDelen}
           </h3>
         )}
-        <div className="pb-8 pt-4 text-center font-poppins lg:text-Desktop/Label lg:mb-16 prose-a:text-primary">
+        <div className="pb-8 pt-4 text-center font-poppins lg:text-Desktop/Label lg:mb-16 prose-a:text-primary hover:prose-a:text-grey-60 hover:prose-a:border-b-2 hover:prose-a:border-grey-60">
           <PortableText value={about.contact} />
         </div>
       </div>

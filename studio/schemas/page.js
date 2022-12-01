@@ -31,5 +31,10 @@ export default {
       name: "buttonMore",
       type: "string",
     },
+    {
+      title: "interview more button",
+      name: "interviewMoreButton",
+      type: "string",
+    },
   ],
 };

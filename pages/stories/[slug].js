@@ -5,6 +5,7 @@ import { Navigation } from "../../components/molecules/Navigation";
 import { InterviewPreview } from "../../components/molecules/InterviewPreview";
 import { ButtonLarge } from "../../components/atoms/ButtonLarge";
 import { client } from "../../lib/client";
+import Head from "next/head";
 
 export const getStaticPaths = async ({ locales }) => {
   const query = `*[_type == "interview" && __i18n_lang == $lang] {
@@ -70,8 +71,19 @@ export default function StoryPage({
 
   return (
     <>
+      <Head>
+        <title>{interview?.name}</title>
+        <meta name="description" content={`${interview?.name} story`} />
+        <meta
+          property="og:title"
+          content={`${interview?.name} - Portraits of European Professionals`}
+        />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Navigation navigation={navigation} page={page} />
-      {interview?.slug.current && <Interview interview={interview} />}
+      {interview?.slug.current && (
+        <Interview interview={interview} page={page} />
+      )}
 
       <div className="flex flex-col items-center pb-10 lg:pb-14">
         <div className="grid grid-cols-2 mt-4 pb-14 justify-items-center gap-y-4 gap-12 lg:gap-20 lg:gap-y-11 lg:grid-cols-3 lg:mt-12 lg:justify-items-center lg:mx-32">

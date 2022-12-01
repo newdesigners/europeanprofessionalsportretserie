@@ -7,7 +7,7 @@ import { BsTwitter, BsLinkedin } from "react-icons/bs";
 import { FaPhoneAlt } from "react-icons/fa";
 import Link from "next/link";
 
-export function Interview({ interview }) {
+export function Interview({ interview, page }) {
   return (
     <>
       <section className="pt-8 mx-4 lg:grid lg:grid-cols-8 lg:gap-x-8 lg:auto-cols-fr lg:my-16 lg:pt-0">
@@ -27,7 +27,7 @@ export function Interview({ interview }) {
 
         {/* On phone hidden, desktop showing */}
         <div className="lg:col-start-2 lg:col-end-5 hidden lg:block lg:pb-8 ">
-          <span className="font-merriweather text-Phone/Label text-grey-80 prose">
+          <span className="font-merriweather text-Phone/Label text-grey-80 prose prose-a:text-primary hover:prose-a:text-grey-60 hover:prose-a:border-b-2 hover:prose-a:border-grey-60">
             <PortableText value={interview?.interviewText} />
           </span>
           <hr className="py-4 lg:hidden" />
@@ -58,7 +58,7 @@ export function Interview({ interview }) {
 
         {/* on phone visible, on desktop hidden */}
         <div className="lg:col-start-2 lg:col-end-5 lg:hidden pb-4">
-          <span className="font-merriweather text-Phone/Label text-grey-80 prose">
+          <span className="font-merriweather text-Phone/Label text-grey-80 prose prose-a:text-primary hover:prose-a:text-grey-60 hover:prose-a:border-b-2 hover:prose-a:border-grey-60">
             <PortableText value={interview?.interviewText} />
           </span>
         </div>
@@ -70,7 +70,7 @@ export function Interview({ interview }) {
             {interview?.mail && (
               <div className="flex items-center">
                 <MdEmail className="h-6 w-6 mr-2 text-secondary" />
-                <Link href="/">
+                <Link href={interview?.mail}>
                   <a>{interview?.mail}</a>
                 </Link>
               </div>
@@ -87,7 +87,7 @@ export function Interview({ interview }) {
           <div className="flex pb-12 lg:pb-0">
             {interview?.linkedin && (
               <Link target="_blank" href={interview?.linkedin}>
-                <a>
+                <a target="_blank" rel="noopener noreferrer">
                   <BsLinkedin className="h-6 w-6" />
                 </a>
               </Link>
@@ -100,8 +100,8 @@ export function Interview({ interview }) {
               </Link>
             )}
             {interview?.instagram && (
-              <Link target="_blank" href={interview?.instagram}>
-                <a>
+              <Link href={interview?.instagram}>
+                <a target="_blank" rel="noopener noreferrer">
                   <FiInstagram className="h-6 w-6" />
                 </a>
               </Link>
@@ -109,9 +109,9 @@ export function Interview({ interview }) {
           </div>
         </div>
       </section>
-      {interview?.meerVerhalen && (
+      {page[1].interviewMoreButton && (
         <h2 className="text-Phone/header2 lg:text-Desktop/Header2 font-merriweather text-center mt-12 lg:mt-16">
-          {interview?.meerVerhalen}
+          {page[1].interviewMoreButton}
         </h2>
       )}
     </>
