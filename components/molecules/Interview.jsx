@@ -70,7 +70,7 @@ export function Interview({ interview, page }) {
             {interview?.mail && (
               <div className="flex items-center">
                 <MdEmail className="h-6 w-6 mr-2 text-secondary" />
-                <Link href={interview?.mail}>
+                <Link href={`mailto:${interview?.mail}`}>
                   <a>{interview?.mail}</a>
                 </Link>
               </div>

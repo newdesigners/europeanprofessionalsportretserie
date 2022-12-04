@@ -26,7 +26,7 @@ export function Footer({ footer, page }) {
           <p className="pt-8 text-Phone/Label lg:text-Desktop/Label">
             {footer.contact}
           </p>
-          <Link href={footer?.email}>
+          <Link href={`mailto:${footer?.email}`}>
             <a>
               <MdEmail className="h-6 w-6 lg:h-8 lg:w-8 lg:text-Desktop/Label" />
             </a>

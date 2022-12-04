@@ -46,14 +46,13 @@ export default function Home({
   footer,
   siteConfig,
 }) {
-  const [isMore, setIsMore] = useState(false);
+  const [isMore, setIsMore] = useState(true);
   const [visible, setVisible] = useState(3);
 
   const showMoreItems = () => {
     setVisible(visible + 3);
     visible + 3 < interview.length ? setIsMore(true) : setIsMore(false);
   };
-  console.log(siteConfig);
   return (
     <>
       <Head>

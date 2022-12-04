@@ -34,6 +34,7 @@ export const getStaticProps = async ({ locale, params: { slug } }) => {
   // pages
   const pageQuery = `*[_type == "page" && __i18n_lang == $lang]`;
   const page = await client.fetch(pageQuery, { lang: locale });
+
   // interview
   const interviewQuery = `*[_type == "interview" && slug.current == $slug && __i18n_lang == $lang][0]`;
   const interview = await client.fetch(interviewQuery, {
@@ -49,8 +50,12 @@ export const getStaticProps = async ({ locale, params: { slug } }) => {
   // footer
   const footerQuery = `*[_type == "footer" && __i18n_lang == $lang]`;
   const footer = await client.fetch(footerQuery, { lang: locale });
+
+  // siteConfig title
+  const siteConfigQuery = `*[_type == "siteConfig" && __i18n_lang == $lang]`;
+  const siteConfig = await client.fetch(siteConfigQuery, { lang: locale });
   return {
-    props: { navigation, page, interview, footer, interviewPrev },
+    props: { navigation, page, interview, footer, interviewPrev, siteConfig },
   };
 };
 
@@ -60,8 +65,9 @@ export default function StoryPage({
   page,
   interview,
   interviewPrev,
+  siteConfig,
 }) {
-  const [isMore, setIsMore] = useState(false);
+  const [isMore, setIsMore] = useState(true);
   const [visible, setVisible] = useState(3);
 
   const showMoreItems = () => {
@@ -72,7 +78,9 @@ export default function StoryPage({
   return (
     <>
       <Head>
-        <title>{interview?.name}</title>
+        <title>
+          {interview?.name} - {siteConfig[0].title}
+        </title>
         <meta name="description" content={`${interview?.name} story`} />
         <meta
           property="og:title"
