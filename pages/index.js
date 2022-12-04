@@ -7,6 +7,7 @@ import { Banner } from "../components/molecules/Banner";
 import { InterviewPreview } from "../components/molecules/InterviewPreview";
 import { Footer } from "../components/molecules/Footer";
 import { ButtonLarge } from "../components/atoms/ButtonLarge";
+import Head from "next/head";
 
 export const getServerSideProps = async ({ locale }) => {
   // banner
@@ -28,12 +29,23 @@ export const getServerSideProps = async ({ locale }) => {
   // footer
   const footerQuery = `*[_type == "footer" && __i18n_lang == $lang]`;
   const footer = await client.fetch(footerQuery, { lang: locale });
+
+  const siteConfigQuery = `*[_type == "siteConfig" && __i18n_lang == $lang]`;
+  const siteConfig = await client.fetch(siteConfigQuery, { lang: locale });
+
   return {
-    props: { banner, navigation, page, interview, footer },
+    props: { banner, navigation, page, interview, footer, siteConfig },
   };
 };
 
-export default function Home({ banner, navigation, page, interview, footer }) {
+export default function Home({
+  banner,
+  navigation,
+  page,
+  interview,
+  footer,
+  siteConfig,
+}) {
   const [isMore, setIsMore] = useState(false);
   const [visible, setVisible] = useState(3);
 
@@ -41,9 +53,12 @@ export default function Home({ banner, navigation, page, interview, footer }) {
     setVisible(visible + 3);
     visible + 3 < interview.length ? setIsMore(true) : setIsMore(false);
   };
-
+  console.log(siteConfig);
   return (
     <>
+      <Head>
+        <title>{siteConfig[0]?.title}</title>
+      </Head>
       <Navigation
         navigation={navigation}
         page={page}
