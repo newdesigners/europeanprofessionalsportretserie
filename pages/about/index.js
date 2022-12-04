@@ -35,7 +35,6 @@ export default function AboutPage({ navigation, page, about, footer }) {
           property="og:title"
           content="About - Portraits of European Professionals"
         />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navigation navigation={navigation} page={page} />
       <About about={about[0]} />

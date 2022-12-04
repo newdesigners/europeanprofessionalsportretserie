@@ -2,10 +2,11 @@ import "../styles/globals.css";
 import Head from "next/head";
 import Script from "next/script";
 
-function MyApp({ Component, pageProps, locales }) {
+function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
+        <link rel="icon" href="/favicon.ico" />
         <meta
           hreflang="nl-nl"
           name="description"
@@ -63,10 +64,6 @@ function MyApp({ Component, pageProps, locales }) {
           name="twitter:image"
           content="https://cdn.sanity.io/images/7eygyk4k/production/c52d1fa1c74c3325591cd216adee48b006c35c5e-168x56.svg"
         />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <Head>
         <meta
           hreflang="en-uk"
           name="description"
@@ -121,7 +118,6 @@ function MyApp({ Component, pageProps, locales }) {
           name="twitter:image"
           content="https://cdn.sanity.io/images/7eygyk4k/production/2b50689cbc495bd902e8d209d275c3778b0ff78d-168x56.svg"
         />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Component {...pageProps} />

@@ -86,7 +86,6 @@ export default function StoryPage({
           property="og:title"
           content={`${interview?.name} - Portraits of European Professionals`}
         />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navigation navigation={navigation} page={page} />
       {interview?.slug.current && (
