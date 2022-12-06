@@ -53,6 +53,10 @@ export function Navigation({
     menuColorMain: "h-12 w-12 text-primary",
   };
 
+  useEffect(() => {
+    document.body.className = open ? "overflow-hidden" : "overflow-auto";
+  }, [open]);
+
   return (
     <nav>
       <div

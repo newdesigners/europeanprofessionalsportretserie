@@ -34,7 +34,3 @@
     scroll-behavior: smooth !important;
   }
 }
-
-.fixedImportant {
-  position: fixed !important;
-}
