@@ -25,7 +25,7 @@ export function InterviewPreview({ interview, page }) {
           </Link>
 
           {interview.quote && (
-            <p className="text-Phone/Quote line-clamp-3 font-merriweather mt-2 mb-2 text-grey-80 text-center lg:text-Desktop/Quote lg:mt-8 max-h-32 lg:max-h-20">
+            <p className="text-Phone/Quote line-clamp-3 font-merriweather mt-2 mb-2 text-grey-80 text-center lg:mt-8 max-h-32 lg:max-h-20">
               {interview.quote}
             </p>
           )}
