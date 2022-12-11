@@ -68,7 +68,7 @@ export default function StoryPage({
   siteConfig,
 }) {
   const [isMore, setIsMore] = useState(true);
-  const [visible, setVisible] = useState(3);
+  const [visible, setVisible] = useState(9);
 
   const showMoreItems = () => {
     setVisible(visible + 3);

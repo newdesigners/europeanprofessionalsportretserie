@@ -47,12 +47,28 @@ export default function Home({
   siteConfig,
 }) {
   const [isMore, setIsMore] = useState(true);
-  const [visible, setVisible] = useState(3);
+  const [visible, setVisible] = useState(9);
 
   const showMoreItems = () => {
     setVisible(visible + 3);
     visible + 3 < interview.length ? setIsMore(true) : setIsMore(false);
   };
+
+  const interviewTime = interview.map((inter) => inter._updatedAt);
+  const interviewArr = interviewTime;
+  const sortArray = interviewArr.sort();
+
+  console.log("interviewArr", interviewArr);
+  console.log("interviewArr reverse", sortArray.reverse());
+
+  const test = interview
+    .map((interview) => interview._updatedAt)
+    .sort(function (a, b) {
+      return a < b ? -1 : a > b ? 1 : 0;
+    })
+    .reverse()
+    .slice(0, visible);
+  console.log(test);
   return (
     <>
       <Head>
@@ -83,6 +99,20 @@ export default function Home({
               page={page}
             />
           ))}
+
+          {/* {interview
+            .map((interview) => (
+              <InterviewPreview
+                key={interview._id}
+                interview={interview}
+                page={page}
+              />
+            ))
+            .sort(function (a, b) {
+              return a < b ? -1 : a > b ? 1 : 0;
+            })
+            .reverse()
+            .slice(0, visible)} */}
         </div>
         {isMore && (
           <ButtonLarge text={page[0].buttonMore} showMore={showMoreItems} />
