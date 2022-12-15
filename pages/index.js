@@ -54,21 +54,6 @@ export default function Home({
     visible + 3 < interview.length ? setIsMore(true) : setIsMore(false);
   };
 
-  const interviewTime = interview.map((inter) => inter._updatedAt);
-  const interviewArr = interviewTime;
-  const sortArray = interviewArr.sort();
-
-  console.log("interviewArr", interviewArr);
-  console.log("interviewArr reverse", sortArray.reverse());
-
-  const test = interview
-    .map((interview) => interview._updatedAt)
-    .sort(function (a, b) {
-      return a < b ? -1 : a > b ? 1 : 0;
-    })
-    .reverse()
-    .slice(0, visible);
-  console.log(test);
   return (
     <>
       <Head>
@@ -92,27 +77,23 @@ export default function Home({
         </h2>
 
         <div className="grid grid-cols-2 mt-4 pb-14 justify-items-center gap-y-4 gap-12 lg:gap-20 lg:gap-y-11 lg:grid-cols-3 lg:mt-12 lg:justify-items-center lg:mx-32">
-          {interview.slice(0, visible).map((interview) => (
-            <InterviewPreview
-              key={interview._id}
-              interview={interview}
-              page={page}
-            />
-          ))}
-
-          {/* {interview
+          {interview
+            .sort(function (a, b) {
+              return a._updatedAt < b._updatedAt
+                ? -1
+                : a._updatedAt > b._updatedAt
+                ? 1
+                : 0;
+            })
+            .reverse()
+            .slice(0, visible)
             .map((interview) => (
               <InterviewPreview
                 key={interview._id}
                 interview={interview}
                 page={page}
               />
-            ))
-            .sort(function (a, b) {
-              return a < b ? -1 : a > b ? 1 : 0;
-            })
-            .reverse()
-            .slice(0, visible)} */}
+            ))}
         </div>
         {isMore && (
           <ButtonLarge text={page[0].buttonMore} showMore={showMoreItems} />
