@@ -67,6 +67,11 @@ export default {
       type: "string",
     },
     {
+      name: "organization",
+      title: "Organization",
+      type: "string",
+    },
+    {
       title: "Phone",
       name: "phone",
       type: "number",
