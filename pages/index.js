@@ -22,9 +22,26 @@ export const getServerSideProps = async ({ locale }) => {
   // pages
   const pageQuery = `*[_type == "page" && __i18n_lang == $lang]`;
   const page = await client.fetch(pageQuery, { lang: locale });
+  
   // interview
-  const interviewQuery = `*[_type == "interview" && __i18n_lang == $lang]`;
-  const interview = await client.fetch(interviewQuery, { lang: locale });
+  const interviewQuery = `*[_type == "interview"]`;
+  let interview = await client.fetch(interviewQuery, { lang: locale });
+
+  //sort from new to old
+  interview = interview.sort((a, b) => new Date(b._updatedAt) - new Date(a._updatedAt));
+
+  //group all the same names together
+  let groupedArray = Object.values(interview.reduce((acc, obj) => {
+    if (!acc[obj.name]) {
+      acc[obj.name] = [];
+    }
+    acc[obj.name].push(obj);
+    return acc;
+  }, {}));
+  
+  //add grouped objects to one array 
+  interview  = [].concat(...groupedArray);
+  interview = interview.filter(interV => interV.__i18n_lang == locale)
 
   // footer
   const footerQuery = `*[_type == "footer" && __i18n_lang == $lang]`;
@@ -78,22 +95,13 @@ export default function Home({
 
         <div className="grid grid-cols-2 mt-4 pb-14 justify-items-center gap-y-4 gap-12 lg:gap-20 lg:gap-y-11 lg:grid-cols-3 lg:mt-12 lg:justify-items-center lg:mx-32">
           {interview
-            .sort(function (a, b) {
-              return a._updatedAt < b._updatedAt
-                ? -1
-                : a._updatedAt > b._updatedAt
-                ? 1
-                : 0;
-            })
-            .reverse()
-            .slice(0, visible)
             .map((interview) => (
               <InterviewPreview
                 key={interview._id}
                 interview={interview}
                 page={page}
               />
-            ))}
+            )).slice(0, visible)}
         </div>
         {isMore && (
           <ButtonLarge text={page[0].buttonMore} showMore={showMoreItems} />
