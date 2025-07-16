@@ -123,7 +123,6 @@ function MyApp({ Component, pageProps }) {
           name="description"
           content="European profesionals, interviews, stories"
         />
-        <link rel="icon" href="/favicon.ico" />
         <script defer data-domain="europeanprofessionals.eu" src="https://plausible.newdesigners.agency/js/script.js" />
       </Head>
 
