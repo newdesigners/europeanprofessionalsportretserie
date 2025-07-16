@@ -8,14 +8,10 @@ function MyApp({ Component, pageProps }) {
         <title>European proffesionals</title>
         <meta
           name="description"
-          content="European proffesionals. interviews, story's"
+          content="European profesionals, interviews, stories"
         />
         <link rel="icon" href="/favicon.ico" />
-        <script
-          defer
-          data-domain="european-professionals.netlify.app"
-          src="https://plausible.io/js/script.js"
-        ></script>
+        <script defer data-domain="europeanprofessionals.eu" src="https://plausible.newdesigners.agency/js/script.js" />
       </Head>
       <Component {...pageProps} />
     </>
