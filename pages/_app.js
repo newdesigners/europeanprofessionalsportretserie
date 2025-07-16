@@ -118,6 +118,12 @@ function MyApp({ Component, pageProps }) {
           name="twitter:image"
           content="https://cdn.sanity.io/images/7eygyk4k/production/2b50689cbc495bd902e8d209d275c3778b0ff78d-168x56.svg"
         />
+        <title>European profesionals</title>
+        <meta
+          name="description"
+          content="European profesionals, interviews, stories"
+        />
+        <link rel="icon" href="/favicon.ico" />
         <script defer data-domain="europeanprofessionals.eu" src="https://plausible.newdesigners.agency/js/script.js" />
       </Head>
 
